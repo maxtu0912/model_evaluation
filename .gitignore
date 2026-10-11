@@ -1,5 +1,6 @@
 results/**
 !results/ceval-deepseek-v2.md
+!results/ceval-deepseek-test.md
 data/
 __pycache__/
 .env

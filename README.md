@@ -1,12 +1,12 @@
-# 大模型评测：DeepSeek 试运行
+# 大模型评测：DeepSeek 与 C-Eval
 
-这是全方位评测的第一步：用一组可客观判分的**文本题**验证模型调用、记录、评分和报告流程。当前题库规模很小，成绩只能用于检查评测流程，不能作为模型排名或全面能力结论。
+项目先用一组可客观判分的文本题验证模型调用、记录、评分和报告流程，然后完成 C-Eval 验证集与测试集的全量评测。这些成绩衡量中文单项选择题表现，不代表模型的全方位能力。
 
 完整的目标、维度、题库设计和实施阶段见[主流大模型全方位能力评测方案](评测方案.md)。
 
 ## C-Eval 中文学科评测
 
-已完成 `deepseek-flash` 在 `val` 验证集上的全量评测：52 学科、1,346 题，正确 1,182 题（逐题正确率 87.8%；学科等权平均 88.3%）。1,346 次请求全部成功，答案均可提取。详细报告见 `results/ceval-deepseek-v2.md`；含原始题目与答案的逐题记录 `results/ceval-deepseek-v2.jsonl` 只保存在本地。这个成绩来自公开验证集，不代表 C-Eval `test` 官方榜单成绩。
+已完成 `deepseek-flash` 在 `val` 验证集上的全量评测：52 学科、1,346 题，正确 1,182 题（逐题正确率 87.8%；学科等权平均 88.3%）。1,346 次请求全部成功，答案均可提取。详细报告见 `results/ceval-deepseek-v2.md`；含原始题目与答案的逐题记录 `results/ceval-deepseek-v2.jsonl` 只保存在本地。
 
 使用 [C-Eval 官方数据](https://github.com/hkust-nlp/ceval) 的 `val` CSV，按官方零样本题目模板发题，另加一条系统指令要求仅输出 A/B/C/D，依据选项评分。DeepSeek 请求明确关闭思考模式、温度设为 0。项目已包含官方学科中文名称与类别映射。数据集受 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 约束；本项目只在本地使用题目，不将题目和标准答案提交到 Git。
 
@@ -18,13 +18,33 @@ python3 ceval.py run --dataset data/ceval-exam.zip --per-subject 0 --output resu
 python3 ceval.py report results/ceval-deepseek-v2.jsonl --markdown results/ceval-deepseek-v2.md
 ```
 
-上述命令选中验证集全部 1,346 题，已有结果会跳过。若只想抽样，设置 `--per-subject 5`，即可按固定随机种子从每个学科抽 5 题。当前镜像的 test CSV 没有答案列，因此本地计分只使用 val 分组。逐题记录保存数据指纹、提示词、原始回答、抽取选项和用量；报告按学科和四大类别展示结果。该自运行零样本配置应作为本项目结果，不能直接与使用其他提示、参数或抽题方式的官方榜单分数混为一谈。
+上述命令选中验证集全部 1,346 题，已有结果会跳过。若只想抽样，设置 `--per-subject 5`，即可按固定随机种子从每个学科抽 5 题。旧镜像的 test CSV 没有答案列。逐题记录保存数据指纹、提示词、原始回答、抽取选项和用量；报告按学科和四大类别展示结果。
+
+### C-Eval test 全量结果
+
+官方 [Hugging Face 数据集](https://huggingface.co/datasets/ceval/ceval-exam) 已公开带答案的 `test` 文件。本项目固定数据版本为 `617524a00b307ff6f9933702f724131fe12ca7ce`，下载 52 个 Parquet 文件，并逐题比对旧镜像中的题干和选项后，转换为本地 CSV 压缩包 `data/ceval-test-labeled.zip`（SHA-256：`dfdc3ccdb31d98d9dc5d47dc1f661ad0b971a3a6c8de9a2d1a73fbdcda43e069`）。该包和逐题记录均不提交到 Git。
+
+`deepseek-flash` 在 12,342 道 `test` 题中答对 10,861 题：逐题正确率 **88.0%**，52 学科等权平均 **88.2%**。全部请求成功，答案均可提取。详细报告见 `results/ceval-deepseek-test.md`。这是本项目独立运行的零样本结果；额外的系统消息要求只返回选项字母，不能直接当作官方榜单分数。
+
+重现数据准备和评测（准备步骤需要 `pyarrow`，运行与报告仅用 Python 标准库）：
+
+```sh
+mkdir -p data
+curl -fL 'https://www.modelscope.cn/datasets/opencompass/ceval-exam/resolve/master/ceval-exam.zip' -o data/ceval-exam.zip
+python3 -m pip install pyarrow
+python3 prepare_ceval_test.py
+python3 ceval.py inspect --dataset data/ceval-test-labeled.zip --split test
+python3 run_ceval_parallel.py --dataset data/ceval-test-labeled.zip --split test --workers 8 --output results/ceval-deepseek-test.jsonl
+python3 ceval.py report results/ceval-deepseek-test.jsonl --markdown results/ceval-deepseek-test.md
+```
+
+`run_ceval_parallel.py` 为每个学科保留独立结果文件并支持续跑。完整验证集与测试集都是公开题目，成绩可能受训练数据污染影响；`dev` 的 260 题是开发示例，本次没有计入测试分数。
 
 由于 C-Eval 题目已经公开，正式结论需结合较新题目和自建保留集，注意可能的训练数据污染。
 
 ## 准备
 
-使用 Python 3.10+，无需第三方依赖。DeepSeek 的官方示例使用 `https://api.deepseek.com/chat/completions`，模型可用性以实际账号和官方模型列表为准。
+评测与报告使用 Python 3.10+，无需第三方依赖；准备官方 Parquet 测试数据需要 `pyarrow`。DeepSeek 的官方示例使用 `https://api.deepseek.com/chat/completions`，模型可用性以实际账号和官方模型列表为准。
 
 在本机终端设置密钥：
 
