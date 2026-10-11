@@ -1,0 +1,210 @@
+{
+  "computer_network": {
+    "name_zh": "计算机网络",
+    "category": "STEM"
+  },
+  "operating_system": {
+    "name_zh": "操作系统",
+    "category": "STEM"
+  },
+  "computer_architecture": {
+    "name_zh": "计算机组成",
+    "category": "STEM"
+  },
+  "college_programming": {
+    "name_zh": "大学编程",
+    "category": "STEM"
+  },
+  "college_physics": {
+    "name_zh": "大学物理",
+    "category": "STEM"
+  },
+  "college_chemistry": {
+    "name_zh": "大学化学",
+    "category": "STEM"
+  },
+  "advanced_mathematics": {
+    "name_zh": "高等数学",
+    "category": "STEM"
+  },
+  "probability_and_statistics": {
+    "name_zh": "概率统计",
+    "category": "STEM"
+  },
+  "discrete_mathematics": {
+    "name_zh": "离散数学",
+    "category": "STEM"
+  },
+  "electrical_engineer": {
+    "name_zh": "注册电气工程师",
+    "category": "STEM"
+  },
+  "metrology_engineer": {
+    "name_zh": "注册计量师",
+    "category": "STEM"
+  },
+  "high_school_mathematics": {
+    "name_zh": "高中数学",
+    "category": "STEM"
+  },
+  "high_school_physics": {
+    "name_zh": "高中物理",
+    "category": "STEM"
+  },
+  "high_school_chemistry": {
+    "name_zh": "高中化学",
+    "category": "STEM"
+  },
+  "high_school_biology": {
+    "name_zh": "高中生物",
+    "category": "STEM"
+  },
+  "middle_school_mathematics": {
+    "name_zh": "初中数学",
+    "category": "STEM"
+  },
+  "middle_school_biology": {
+    "name_zh": "初中生物",
+    "category": "STEM"
+  },
+  "middle_school_physics": {
+    "name_zh": "初中物理",
+    "category": "STEM"
+  },
+  "middle_school_chemistry": {
+    "name_zh": "初中化学",
+    "category": "STEM"
+  },
+  "veterinary_medicine": {
+    "name_zh": "兽医学",
+    "category": "STEM"
+  },
+  "college_economics": {
+    "name_zh": "大学经济学",
+    "category": "Social Science"
+  },
+  "business_administration": {
+    "name_zh": "工商管理",
+    "category": "Social Science"
+  },
+  "marxism": {
+    "name_zh": "马克思主义基本原理",
+    "category": "Social Science"
+  },
+  "mao_zedong_thought": {
+    "name_zh": "毛泽东思想和中国特色社会主义理论体系概论",
+    "category": "Social Science"
+  },
+  "education_science": {
+    "name_zh": "教育学",
+    "category": "Social Science"
+  },
+  "teacher_qualification": {
+    "name_zh": "教师资格",
+    "category": "Social Science"
+  },
+  "high_school_politics": {
+    "name_zh": "高中政治",
+    "category": "Social Science"
+  },
+  "high_school_geography": {
+    "name_zh": "高中地理",
+    "category": "Social Science"
+  },
+  "middle_school_politics": {
+    "name_zh": "初中政治",
+    "category": "Social Science"
+  },
+  "middle_school_geography": {
+    "name_zh": "初中地理",
+    "category": "Social Science"
+  },
+  "modern_chinese_history": {
+    "name_zh": "近代史纲要",
+    "category": "Humanities"
+  },
+  "ideological_and_moral_cultivation": {
+    "name_zh": "思想道德修养与法律基础",
+    "category": "Humanities"
+  },
+  "logic": {
+    "name_zh": "逻辑学",
+    "category": "Humanities"
+  },
+  "law": {
+    "name_zh": "法学",
+    "category": "Humanities"
+  },
+  "chinese_language_and_literature": {
+    "name_zh": "中国语言文学",
+    "category": "Humanities"
+  },
+  "art_studies": {
+    "name_zh": "艺术学",
+    "category": "Humanities"
+  },
+  "professional_tour_guide": {
+    "name_zh": "导游资格",
+    "category": "Humanities"
+  },
+  "legal_professional": {
+    "name_zh": "法律职业资格",
+    "category": "Humanities"
+  },
+  "high_school_chinese": {
+    "name_zh": "高中语文",
+    "category": "Humanities"
+  },
+  "high_school_history": {
+    "name_zh": "高中历史",
+    "category": "Humanities"
+  },
+  "middle_school_history": {
+    "name_zh": "初中历史",
+    "category": "Humanities"
+  },
+  "civil_servant": {
+    "name_zh": "公务员",
+    "category": "Other"
+  },
+  "sports_science": {
+    "name_zh": "体育学",
+    "category": "Other"
+  },
+  "plant_protection": {
+    "name_zh": "植物保护",
+    "category": "Other"
+  },
+  "basic_medicine": {
+    "name_zh": "基础医学",
+    "category": "Other"
+  },
+  "clinical_medicine": {
+    "name_zh": "临床医学",
+    "category": "Other"
+  },
+  "urban_and_rural_planner": {
+    "name_zh": "注册城乡规划师",
+    "category": "Other"
+  },
+  "accountant": {
+    "name_zh": "注册会计师",
+    "category": "Other"
+  },
+  "fire_engineer": {
+    "name_zh": "注册消防工程师",
+    "category": "Other"
+  },
+  "environmental_impact_assessment_engineer": {
+    "name_zh": "环境影响评价工程师",
+    "category": "Other"
+  },
+  "tax_accountant": {
+    "name_zh": "税务师",
+    "category": "Other"
+  },
+  "physician": {
+    "name_zh": "医师资格",
+    "category": "Other"
+  }
+}

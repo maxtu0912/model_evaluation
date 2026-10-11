@@ -4,6 +4,24 @@
 
 完整的目标、维度、题库设计和实施阶段见[主流大模型全方位能力评测方案](评测方案.md)。
 
+## C-Eval 中文学科评测
+
+已完成 `deepseek-flash` 在 `val` 验证集上的全量评测：52 学科、1,346 题，正确 1,182 题（逐题正确率 87.8%；学科等权平均 88.3%）。1,346 次请求全部成功，答案均可提取。详细报告见 `results/ceval-deepseek-v2.md`；含原始题目与答案的逐题记录 `results/ceval-deepseek-v2.jsonl` 只保存在本地。这个成绩来自公开验证集，不代表 C-Eval `test` 官方榜单成绩。
+
+使用 [C-Eval 官方数据](https://github.com/hkust-nlp/ceval) 的 `val` CSV，按官方零样本题目模板发题，另加一条系统指令要求仅输出 A/B/C/D，依据选项评分。DeepSeek 请求明确关闭思考模式、温度设为 0。项目已包含官方学科中文名称与类别映射。数据集受 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 约束；本项目只在本地使用题目，不将题目和标准答案提交到 Git。
+
+题库压缩包已从 [OpenCompass 的 ModelScope 镜像](https://www.modelscope.cn/datasets/opencompass/ceval-exam)下载到项目 `data/ceval-exam.zip`。该文件的 SHA-256 是 `68786deeea68ff089c56563ee48fab8160da857b77b913437bb504d681fd8e20`。运行：
+
+```sh
+python3 ceval.py inspect --dataset data/ceval-exam.zip
+python3 ceval.py run --dataset data/ceval-exam.zip --per-subject 0 --output results/ceval-deepseek-v2.jsonl
+python3 ceval.py report results/ceval-deepseek-v2.jsonl --markdown results/ceval-deepseek-v2.md
+```
+
+上述命令选中验证集全部 1,346 题，已有结果会跳过。若只想抽样，设置 `--per-subject 5`，即可按固定随机种子从每个学科抽 5 题。当前镜像的 test CSV 没有答案列，因此本地计分只使用 val 分组。逐题记录保存数据指纹、提示词、原始回答、抽取选项和用量；报告按学科和四大类别展示结果。该自运行零样本配置应作为本项目结果，不能直接与使用其他提示、参数或抽题方式的官方榜单分数混为一谈。
+
+由于 C-Eval 题目已经公开，正式结论需结合较新题目和自建保留集，注意可能的训练数据污染。
+
 ## 准备
 
 使用 Python 3.10+，无需第三方依赖。DeepSeek 的官方示例使用 `https://api.deepseek.com/chat/completions`，模型可用性以实际账号和官方模型列表为准。
