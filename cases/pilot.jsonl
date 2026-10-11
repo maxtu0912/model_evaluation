@@ -1,0 +1,21 @@
+{"id":"zh-01","dimension":"中文理解","prompt":"‘虽然天气很冷，但是他仍然出门了’表达了哪种关系？只输出字母。A.因果 B.转折 C.并列 D.递进","answer":"B","grader":"exact"}
+{"id":"zh-02","dimension":"中文理解","prompt":"‘未尝不可’的意思最接近哪项？只输出字母。A.绝对禁止 B.可以考虑 C.已经完成 D.毫无可能","answer":"B","grader":"exact"}
+{"id":"zh-03","dimension":"中文理解","prompt":"‘并非所有申请都被批准’在逻辑上意味着什么？只输出字母。A.所有申请均未批准 B.至少一个申请未获批准 C.至少一个申请获批准 D.申请数量为零","answer":"B","grader":"exact"}
+{"id":"ins-01","dimension":"指令遵循","prompt":"只输出一个 JSON 对象，键按顺序为 name、count；name 值为‘苹果’，count 值为 3。不要代码块。","answer":{"name":"苹果","count":3},"grader":"json"}
+{"id":"ins-02","dimension":"指令遵循","prompt":"只输出大写英文字母 OK，不要标点和解释。","answer":"OK","grader":"exact"}
+{"id":"ins-03","dimension":"指令遵循","prompt":"计算 2+3。只输出阿拉伯数字。","answer":"5","grader":"exact"}
+{"id":"math-01","dimension":"数学","prompt":"某商品原价 200 元，先涨价 10%，再降价 10%。最终价格是多少元？只输出数字。","answer":198,"grader":"number"}
+{"id":"math-02","dimension":"数学","prompt":"数列 2, 6, 12, 20, 30 的下一项是多少？只输出数字。","answer":42,"grader":"number"}
+{"id":"math-03","dimension":"数学","prompt":"一辆车以每小时 60 千米行驶 1.5 小时，行驶多少千米？只输出数字。","answer":90,"grader":"number"}
+{"id":"logic-01","dimension":"逻辑推理","prompt":"所有红盒子都是木盒子。没有木盒子是透明的。红盒子可能透明吗？只输出‘能’或‘不能’。","answer":"不能","grader":"exact"}
+{"id":"logic-02","dimension":"逻辑推理","prompt":"甲比乙高，乙比丙高。三人中最矮的是谁？只输出一个汉字。","answer":"丙","grader":"exact"}
+{"id":"logic-03","dimension":"逻辑推理","prompt":"如果今天是星期二，100 天后是星期几？只输出‘星期X’。","answer":"星期四","grader":"exact"}
+{"id":"ground-01","dimension":"给定材料核对","prompt":"材料：蓝桥项目于 2024 年 5 月启动，负责人是林岚，预算为 80 万元。问题：项目预算是多少万元？只输出数字。","answer":80,"grader":"number"}
+{"id":"ground-02","dimension":"给定材料核对","prompt":"材料：会议原定周三举行，后来改到周五；地点始终是二号会议室。问题：最终会议在哪天举行？只输出‘周X’。","answer":"周五","grader":"exact"}
+{"id":"ground-03","dimension":"给定材料核对","prompt":"材料：A 产品保修 24 个月，B 产品保修 12 个月，C 产品未提供保修信息。问题：C 产品保修多久？若材料没有说明，只输出‘未说明’。","answer":"未说明","grader":"exact"}
+{"id":"code-01","dimension":"代码理解","prompt":"Python 代码：x = [1, 2, 3]; print(x[-1])。输出是什么？只输出数字。","answer":3,"grader":"number"}
+{"id":"code-02","dimension":"代码理解","prompt":"Python 代码：print(len('你好'))。输出是什么？只输出数字。","answer":2,"grader":"number"}
+{"id":"code-03","dimension":"代码理解","prompt":"JavaScript 代码：console.log([1, 2, 3].map(x => x * 2)[1])。输出是什么？只输出数字。","answer":4,"grader":"number"}
+{"id":"extract-01","dimension":"信息抽取","prompt":"从‘订单 A17，客户王敏，金额 59.50 元’抽取订单号和金额。只输出 JSON，键为 order_id 和 amount，金额用数字。","answer":{"order_id":"A17","amount":59.5},"grader":"json"}
+{"id":"extract-02","dimension":"信息抽取","prompt":"从‘2026-03-04 09:30，上海，晴’抽取日期和城市。只输出 JSON，键为 date 和 city。","answer":{"date":"2026-03-04","city":"上海"},"grader":"json"}
+{"id":"extract-03","dimension":"信息抽取","prompt":"文本：‘报名者：李青；电话：13800000000；邮箱：无’。只输出 JSON，键为 name 和 has_email，后者为布尔值。","answer":{"name":"李青","has_email":false},"grader":"json"}
