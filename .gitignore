@@ -1,7 +1,10 @@
 results/**
 !results/ceval-deepseek-v2.md
 !results/ceval-deepseek-test.md
-data/
+!results/ceval-deepseek-v4-pro-test.md
+!results/mmlu-pro-flash.md
+/data/
+.venv/
 __pycache__/
 .env
 *.pyc

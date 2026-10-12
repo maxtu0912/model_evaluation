@@ -1,0 +1,469 @@
+{
+  "split": "test",
+  "dataset_fingerprint": "0eb01609592342afa69dbc7ea376a79aa795f1937ac05e1069fb1abda8ec612d",
+  "status": "completed",
+  "protocol": {
+    "prompt_version": "mmlu-pro-official-5shot-cot-nonthinking-v1",
+    "shots": 5,
+    "thinking": "disabled",
+    "temperature": 0,
+    "max_tokens": 4000,
+    "selection": "full"
+  },
+  "counts": {
+    "total": 12032,
+    "valid": 12032,
+    "correct": 10167,
+    "failed": 0,
+    "unparsed": 49,
+    "expected_total": 12032
+  },
+  "metrics": {
+    "accuracy": 84.4996675531915,
+    "macro_accuracy": 84.04460506462384
+  },
+  "categories": [
+    {
+      "id": "biology",
+      "name": "生物",
+      "counts": {
+        "total": 717,
+        "valid": 717,
+        "correct": 669,
+        "failed": 0,
+        "unparsed": 1
+      },
+      "metrics": {
+        "accuracy": 93.30543933054393,
+        "macro_accuracy": 93.30543933054393
+      }
+    },
+    {
+      "id": "business",
+      "name": "商业",
+      "counts": {
+        "total": 789,
+        "valid": 789,
+        "correct": 707,
+        "failed": 0,
+        "unparsed": 5
+      },
+      "metrics": {
+        "accuracy": 89.60709759188846,
+        "macro_accuracy": 89.60709759188846
+      }
+    },
+    {
+      "id": "chemistry",
+      "name": "化学",
+      "counts": {
+        "total": 1132,
+        "valid": 1132,
+        "correct": 991,
+        "failed": 0,
+        "unparsed": 4
+      },
+      "metrics": {
+        "accuracy": 87.54416961130742,
+        "macro_accuracy": 87.54416961130742
+      }
+    },
+    {
+      "id": "computer science",
+      "name": "计算机科学",
+      "counts": {
+        "total": 410,
+        "valid": 410,
+        "correct": 355,
+        "failed": 0,
+        "unparsed": 5
+      },
+      "metrics": {
+        "accuracy": 86.58536585365853,
+        "macro_accuracy": 86.58536585365853
+      }
+    },
+    {
+      "id": "economics",
+      "name": "经济学",
+      "counts": {
+        "total": 844,
+        "valid": 844,
+        "correct": 749,
+        "failed": 0,
+        "unparsed": 2
+      },
+      "metrics": {
+        "accuracy": 88.74407582938389,
+        "macro_accuracy": 88.74407582938389
+      }
+    },
+    {
+      "id": "engineering",
+      "name": "工程",
+      "counts": {
+        "total": 969,
+        "valid": 969,
+        "correct": 750,
+        "failed": 0,
+        "unparsed": 7
+      },
+      "metrics": {
+        "accuracy": 77.39938080495357,
+        "macro_accuracy": 77.39938080495357
+      }
+    },
+    {
+      "id": "health",
+      "name": "健康与医学",
+      "counts": {
+        "total": 818,
+        "valid": 818,
+        "correct": 657,
+        "failed": 0,
+        "unparsed": 0
+      },
+      "metrics": {
+        "accuracy": 80.31784841075795,
+        "macro_accuracy": 80.31784841075795
+      }
+    },
+    {
+      "id": "history",
+      "name": "历史",
+      "counts": {
+        "total": 381,
+        "valid": 381,
+        "correct": 285,
+        "failed": 0,
+        "unparsed": 0
+      },
+      "metrics": {
+        "accuracy": 74.80314960629921,
+        "macro_accuracy": 74.80314960629921
+      }
+    },
+    {
+      "id": "law",
+      "name": "法律",
+      "counts": {
+        "total": 1101,
+        "valid": 1101,
+        "correct": 761,
+        "failed": 0,
+        "unparsed": 0
+      },
+      "metrics": {
+        "accuracy": 69.11898274296094,
+        "macro_accuracy": 69.11898274296094
+      }
+    },
+    {
+      "id": "math",
+      "name": "数学",
+      "counts": {
+        "total": 1351,
+        "valid": 1351,
+        "correct": 1260,
+        "failed": 0,
+        "unparsed": 14
+      },
+      "metrics": {
+        "accuracy": 93.26424870466322,
+        "macro_accuracy": 93.26424870466322
+      }
+    },
+    {
+      "id": "other",
+      "name": "其他",
+      "counts": {
+        "total": 924,
+        "valid": 924,
+        "correct": 751,
+        "failed": 0,
+        "unparsed": 2
+      },
+      "metrics": {
+        "accuracy": 81.27705627705627,
+        "macro_accuracy": 81.27705627705627
+      }
+    },
+    {
+      "id": "philosophy",
+      "name": "哲学",
+      "counts": {
+        "total": 499,
+        "valid": 499,
+        "correct": 408,
+        "failed": 0,
+        "unparsed": 0
+      },
+      "metrics": {
+        "accuracy": 81.76352705410822,
+        "macro_accuracy": 81.76352705410822
+      }
+    },
+    {
+      "id": "physics",
+      "name": "物理",
+      "counts": {
+        "total": 1299,
+        "valid": 1299,
+        "correct": 1152,
+        "failed": 0,
+        "unparsed": 9
+      },
+      "metrics": {
+        "accuracy": 88.68360277136259,
+        "macro_accuracy": 88.68360277136259
+      }
+    },
+    {
+      "id": "psychology",
+      "name": "心理学",
+      "counts": {
+        "total": 798,
+        "valid": 798,
+        "correct": 672,
+        "failed": 0,
+        "unparsed": 0
+      },
+      "metrics": {
+        "accuracy": 84.21052631578947,
+        "macro_accuracy": 84.21052631578947
+      }
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "biology",
+      "name": "生物",
+      "category_id": "biology",
+      "counts": {
+        "total": 717,
+        "valid": 717,
+        "correct": 669,
+        "failed": 0,
+        "unparsed": 1
+      },
+      "metrics": {
+        "accuracy": 93.30543933054393,
+        "macro_accuracy": 93.30543933054393
+      }
+    },
+    {
+      "id": "business",
+      "name": "商业",
+      "category_id": "business",
+      "counts": {
+        "total": 789,
+        "valid": 789,
+        "correct": 707,
+        "failed": 0,
+        "unparsed": 5
+      },
+      "metrics": {
+        "accuracy": 89.60709759188846,
+        "macro_accuracy": 89.60709759188846
+      }
+    },
+    {
+      "id": "chemistry",
+      "name": "化学",
+      "category_id": "chemistry",
+      "counts": {
+        "total": 1132,
+        "valid": 1132,
+        "correct": 991,
+        "failed": 0,
+        "unparsed": 4
+      },
+      "metrics": {
+        "accuracy": 87.54416961130742,
+        "macro_accuracy": 87.54416961130742
+      }
+    },
+    {
+      "id": "computer science",
+      "name": "计算机科学",
+      "category_id": "computer science",
+      "counts": {
+        "total": 410,
+        "valid": 410,
+        "correct": 355,
+        "failed": 0,
+        "unparsed": 5
+      },
+      "metrics": {
+        "accuracy": 86.58536585365853,
+        "macro_accuracy": 86.58536585365853
+      }
+    },
+    {
+      "id": "economics",
+      "name": "经济学",
+      "category_id": "economics",
+      "counts": {
+        "total": 844,
+        "valid": 844,
+        "correct": 749,
+        "failed": 0,
+        "unparsed": 2
+      },
+      "metrics": {
+        "accuracy": 88.74407582938389,
+        "macro_accuracy": 88.74407582938389
+      }
+    },
+    {
+      "id": "engineering",
+      "name": "工程",
+      "category_id": "engineering",
+      "counts": {
+        "total": 969,
+        "valid": 969,
+        "correct": 750,
+        "failed": 0,
+        "unparsed": 7
+      },
+      "metrics": {
+        "accuracy": 77.39938080495357,
+        "macro_accuracy": 77.39938080495357
+      }
+    },
+    {
+      "id": "health",
+      "name": "健康与医学",
+      "category_id": "health",
+      "counts": {
+        "total": 818,
+        "valid": 818,
+        "correct": 657,
+        "failed": 0,
+        "unparsed": 0
+      },
+      "metrics": {
+        "accuracy": 80.31784841075795,
+        "macro_accuracy": 80.31784841075795
+      }
+    },
+    {
+      "id": "history",
+      "name": "历史",
+      "category_id": "history",
+      "counts": {
+        "total": 381,
+        "valid": 381,
+        "correct": 285,
+        "failed": 0,
+        "unparsed": 0
+      },
+      "metrics": {
+        "accuracy": 74.80314960629921,
+        "macro_accuracy": 74.80314960629921
+      }
+    },
+    {
+      "id": "law",
+      "name": "法律",
+      "category_id": "law",
+      "counts": {
+        "total": 1101,
+        "valid": 1101,
+        "correct": 761,
+        "failed": 0,
+        "unparsed": 0
+      },
+      "metrics": {
+        "accuracy": 69.11898274296094,
+        "macro_accuracy": 69.11898274296094
+      }
+    },
+    {
+      "id": "math",
+      "name": "数学",
+      "category_id": "math",
+      "counts": {
+        "total": 1351,
+        "valid": 1351,
+        "correct": 1260,
+        "failed": 0,
+        "unparsed": 14
+      },
+      "metrics": {
+        "accuracy": 93.26424870466322,
+        "macro_accuracy": 93.26424870466322
+      }
+    },
+    {
+      "id": "other",
+      "name": "其他",
+      "category_id": "other",
+      "counts": {
+        "total": 924,
+        "valid": 924,
+        "correct": 751,
+        "failed": 0,
+        "unparsed": 2
+      },
+      "metrics": {
+        "accuracy": 81.27705627705627,
+        "macro_accuracy": 81.27705627705627
+      }
+    },
+    {
+      "id": "philosophy",
+      "name": "哲学",
+      "category_id": "philosophy",
+      "counts": {
+        "total": 499,
+        "valid": 499,
+        "correct": 408,
+        "failed": 0,
+        "unparsed": 0
+      },
+      "metrics": {
+        "accuracy": 81.76352705410822,
+        "macro_accuracy": 81.76352705410822
+      }
+    },
+    {
+      "id": "physics",
+      "name": "物理",
+      "category_id": "physics",
+      "counts": {
+        "total": 1299,
+        "valid": 1299,
+        "correct": 1152,
+        "failed": 0,
+        "unparsed": 9
+      },
+      "metrics": {
+        "accuracy": 88.68360277136259,
+        "macro_accuracy": 88.68360277136259
+      }
+    },
+    {
+      "id": "psychology",
+      "name": "心理学",
+      "category_id": "psychology",
+      "counts": {
+        "total": 798,
+        "valid": 798,
+        "correct": 672,
+        "failed": 0,
+        "unparsed": 0
+      },
+      "metrics": {
+        "accuracy": 84.21052631578947,
+        "macro_accuracy": 84.21052631578947
+      }
+    }
+  ],
+  "operational": {
+    "latency_seconds": 2.3397490026595746,
+    "input_tokens": 15612946,
+    "output_tokens": 3525931,
+    "latency_comparable": false
+  }
+}

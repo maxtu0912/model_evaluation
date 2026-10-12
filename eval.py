@@ -93,14 +93,23 @@ def api_json(base_url, endpoint, key, payload=None, timeout=120):
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
         method="GET" if body is None else "POST",
     )
-    try:
-        with request.urlopen(req, timeout=timeout) as resp:
-            return json.load(resp)
-    except error.HTTPError as exc:
-        # API error bodies can contain account details; keep only the status code.
-        raise RuntimeError(f"HTTP {exc.code} from API") from exc
-    except error.URLError as exc:
-        raise RuntimeError(f"API connection failed: {exc.reason}") from exc
+    for attempt in range(6):
+        try:
+            with request.urlopen(req, timeout=timeout) as resp:
+                return json.load(resp)
+        except error.HTTPError as exc:
+            if exc.code == 429 and attempt < 5:
+                try:
+                    retry_after = float(exc.headers.get("Retry-After", "0")) if exc.headers else 0
+                except ValueError:
+                    retry_after = 0
+                exc.close()
+                time.sleep(min(60, max(2 ** (attempt + 1), retry_after)))
+                continue
+            # API error bodies can contain account details; keep only the status code.
+            raise RuntimeError(f"HTTP {exc.code} from API") from exc
+        except error.URLError as exc:
+            raise RuntimeError(f"API connection failed: {exc.reason}") from exc
 
 
 def get_key():

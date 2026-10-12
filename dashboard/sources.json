@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "benchmarks": [
+    {
+      "id": "ceval",
+      "name": "C-Eval",
+      "description": "中文学科知识 · 单项选择 · 52 学科",
+      "metrics": [
+        {
+          "id": "accuracy",
+          "name": "逐题正确率",
+          "unit": "%",
+          "range": [
+            0,
+            100
+          ],
+          "higher_is_better": true
+        },
+        {
+          "id": "macro_accuracy",
+          "name": "学科等权平均",
+          "unit": "%",
+          "range": [
+            0,
+            100
+          ],
+          "higher_is_better": true
+        }
+      ]
+    },
+    {
+      "id": "mmlu-pro",
+      "name": "MMLU-Pro",
+      "description": "英文知识与推理 · 14 领域 · 5-shot CoT",
+      "metrics": [
+        {
+          "id": "accuracy",
+          "name": "逐题正确率",
+          "unit": "%",
+          "range": [
+            0,
+            100
+          ],
+          "higher_is_better": true
+        },
+        {
+          "id": "macro_accuracy",
+          "name": "领域等权平均",
+          "unit": "%",
+          "range": [
+            0,
+            100
+          ],
+          "higher_is_better": true
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ceval-test-flash-history",
+      "format": "ceval-report",
+      "path": "results/ceval-deepseek-test.md",
+      "benchmark_id": "ceval",
+      "model": {
+        "id": "deepseek-flash",
+        "name": "DeepSeek Flash",
+        "provider": "DeepSeek"
+      },
+      "date": null,
+      "protocol": {
+        "shots": 0,
+        "thinking": "disabled",
+        "temperature": 0,
+        "max_tokens": 32,
+        "selection": "full"
+      },
+      "notes": [
+        "历史汇总结果；未提供不可变模型快照。",
+        "耗时与本次 Pro 运行不可直接比较。"
+      ]
+    },
+    {
+      "id": "ceval-test-pro-20261012",
+      "format": "ceval-report",
+      "path": "results/ceval-deepseek-v4-pro-test.md",
+      "benchmark_id": "ceval",
+      "model": {
+        "id": "deepseek-v4-pro",
+        "name": "DeepSeek V4 Pro",
+        "provider": "DeepSeek"
+      },
+      "date": "2026-10-12",
+      "protocol": {
+        "shots": 0,
+        "thinking": "disabled",
+        "temperature": 0,
+        "max_tokens": 32,
+        "selection": "full"
+      },
+      "notes": [
+        "API 返回名称为 deepseek-v4-pro；不是不可变快照。",
+        "耗时包含限流退避与重试，不用于性能排名。",
+        "5 个多选项回答按错误计分。"
+      ]
+    },
+    {
+      "id": "ceval-val-flash-history",
+      "format": "ceval-report",
+      "path": "results/ceval-deepseek-v2.md",
+      "benchmark_id": "ceval",
+      "model": {
+        "id": "deepseek-flash",
+        "name": "DeepSeek Flash",
+        "provider": "DeepSeek"
+      },
+      "date": null,
+      "protocol": {
+        "shots": 0,
+        "thinking": "disabled",
+        "temperature": 0,
+        "max_tokens": 32,
+        "selection": "full"
+      },
+      "notes": [
+        "历史验证集结果；与 test 分开展示。",
+        "未提供不可变模型快照。"
+      ]
+    },
+    {
+      "id": "mmlu-pro-test-flash-20261012",
+      "format": "normalized",
+      "path": "aggregates/mmlu-pro-flash.json",
+      "benchmark_id": "mmlu-pro",
+      "model": {
+        "id": "deepseek-flash",
+        "name": "DeepSeek Flash",
+        "provider": "DeepSeek"
+      },
+      "date": "2026-10-12",
+      "notes": [
+        "全量完成：12032 题、14 个领域；最终请求失败 0。",
+        "账户模型服务名称为 DeepSeek-V4.1-Flash；响应模型名称为 deepseek-flash；不是不可变快照。",
+        "固定版本的 5-shot CoT，关闭 API 内部思考模式，最大输出 4000 token。",
+        "58 个响应达到输出上限；49 个无法提取答案的响应均为截断，按错计分；另 9 个截断响应仍能提取答案，其中 6 个正确。",
+        "中间请求失败已通过续跑补齐，历史错误记录保留在本地；耗时包含重试等待，不用于速度排名。"
+      ]
+    }
+  ]
+}

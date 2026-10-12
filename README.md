@@ -1,8 +1,42 @@
-# 大模型评测：DeepSeek 与 C-Eval
+# 大模型评测与对比
 
-项目先用一组可客观判分的文本题验证模型调用、记录、评分和报告流程，然后完成 C-Eval 验证集与测试集的全量评测。这些成绩衡量中文单项选择题表现，不代表模型的全方位能力。
+项目先用客观文本题验证模型调用、记录、评分和报告流程，再完成 C-Eval 与 MMLU-Pro 的学科评测。成绩分别衡量中文、英文选择题在各自协议下的表现，不代表模型的全方位能力。
 
 完整的目标、维度、题库设计和实施阶段见[主流大模型全方位能力评测方案](评测方案.md)。
+
+## 结果对比与可视化
+
+- [Flash 与 V4 Pro 的优劣势总结](docs/ceval-flash-vs-pro.md)：总体、类别、学科差异及比较范围。
+- [Eval Atlas 交互看板](dashboard/index.html)：模型选择、基准对比、类别图、学科 / 领域明细及运行配置。目前接入 C-Eval 的 Flash test、V4 Pro test、Flash val，以及 MMLU-Pro 的 Flash test 四次结果。
+- [新增模型 / 评测集的数据接入说明](dashboard/README.md)：通过来源配置和统一汇总格式扩展，前端不固定模型数量或评测集。
+
+在仓库根目录启动：
+
+```sh
+python3 build_dashboard.py
+python3 -m http.server 8765 --bind 127.0.0.1 --directory dashboard
+```
+
+浏览器打开 `http://127.0.0.1:8765/`。静态服务仅提供看板目录。来源注册在 `dashboard/sources.json`，公开汇总目录为 `dashboard/data/catalog.json`；更换数据或加入新运行后重新生成并刷新页面。不同数据版本、分组、提示或生成参数会分开展示，不跨评测集计算一个总分。
+
+## MMLU-Pro 英文学科评测
+
+已于 2026-10-12 完成 `deepseek-flash` 的 test 全量评测：**12,032 题、14 个领域，答对 10,167 题，逐题正确率 84.50%，领域等权平均 84.04%**。账户模型目录显示服务名称为 **DeepSeek-V4.1-Flash**。
+
+采用固定数据版本、5-shot CoT、非思考模式、温度 0 和 4,000 token 输出上限。全部题目最终取得成功响应；49 个无法提取最终选项的回答按错计分，58 个输出截断单列统计。中间失败请求已通过续跑补齐，成功回答未因答错、格式异常或截断而重新生成。
+
+查看 [完整报告](results/mmlu-pro-flash.md)、[固定数据与评测协议](docs/mmlu-pro-method.md)。结果已通过归一化汇总接入看板，并标记为全量完成；不与 C-Eval 的零样本、短输出协议直接比较百分比分数。
+
+重现评测和更新看板：
+
+```sh
+.venv/bin/python mmlu_pro.py prepare
+python3 mmlu_pro.py run --workers 8
+python3 mmlu_pro.py report --require-complete --markdown results/mmlu-pro-flash.md --aggregate aggregates/mmlu-pro-flash.json
+python3 build_dashboard.py
+```
+
+原始题库与逐题回答留在本地，只跟踪归一化汇总和报告。重新运行同一命令会复用已保存的成功记录；新模型或新实验应使用独立结果文件。
 
 ## C-Eval 中文学科评测
 
@@ -39,6 +73,24 @@ python3 ceval.py report results/ceval-deepseek-test.jsonl --markdown results/cev
 ```
 
 `run_ceval_parallel.py` 为每个学科保留独立结果文件并支持续跑。完整验证集与测试集都是公开题目，成绩可能受训练数据污染影响；`dev` 的 260 题是开发示例，本次没有计入测试分数。
+
+### DeepSeek V4 Pro 对照评测
+
+已于 2026-10-12 完成 `deepseek-v4-pro` 的 test 全量评测：12,342 题中答对 **11,126 题（90.15%）**，学科等权平均 **90.10%**。相对仓库 Flash 历史结果（10,861 题正确，88.00%），多答对 **265 题**，逐题正确率提高 **2.15 个百分点**。最终请求失败 0；5 个无法提取为单一选项的回答按错误计分。详细报告及类别对照见 [Pro 评测报告](results/ceval-deepseek-v4-pro-test.md)。
+
+使用官方 API 模型名 `deepseek-v4-pro`，沿用 Flash 的 test 全量数据、零样本提示、关闭思考模式、温度 0 和最大输出 32 token。Pro 使用独立分卷目录和结果文件，支持中断续跑：
+
+```sh
+python3 eval.py models
+python3 run_ceval_parallel.py --dataset data/ceval-test-labeled.zip --split test --model deepseek-v4-pro --workers 8 --limit-per-subject 1 --parts-dir results/ceval-v4-pro-test-parts --output results/ceval-deepseek-v4-pro-smoke.jsonl
+python3 ceval.py report results/ceval-deepseek-v4-pro-smoke.jsonl
+python3 run_ceval_parallel.py --dataset data/ceval-test-labeled.zip --split test --model deepseek-v4-pro --workers 8 --parts-dir results/ceval-v4-pro-test-parts --output results/ceval-deepseek-v4-pro-test.jsonl
+python3 ceval.py report results/ceval-deepseek-v4-pro-test.jsonl --markdown results/ceval-deepseek-v4-pro-test.md
+```
+
+先试跑每学科 1 题（共 52 题），确认 API 返回的模型、请求成功和选项提取正常后再运行全量；全量会复用这些试跑记录。API 返回的模型名称记录在逐题记录的 `api_model` 中，该名称未必是不可变版本；比较时也应核对数据指纹与提示版本。Flash 历史报告未提供可核实的模型快照。本次耗时含限流等待和重试，不直接与 Flash 历史耗时比较。
+
+API 遇到 HTTP 429 时最多重试 5 次，逐步延长等待并参考 `Retry-After`（单次最多等待 60 秒）；持续失败仍保存错误记录，可用同一命令续跑。模型成功返回但未按格式回答的记录保留并按现有规则评分。
 
 由于 C-Eval 题目已经公开，正式结论需结合较新题目和自建保留集，注意可能的训练数据污染。
 

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="比较不同模型在相同评测集和配置下的表现，探索类别与学科差异。">
+  <title>Eval Atlas · 模型评测观测台</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到评测数据</a>
+  <aside class="sidebar">
+    <a class="brand" href="#main"><span class="brand-mark" aria-hidden="true">E<span>↗</span></span><span>EVAL ATLAS<small>模型评测观测台</small></span></a>
+    <div class="side-label">WORKSPACE / 评测空间</div>
+    <nav aria-label="页面导航">
+      <a class="nav-item active" href="#overview"><span aria-hidden="true">▦</span> 模型对比 <span class="nav-dot"></span></a>
+      <a class="nav-item" href="#dimensions"><span aria-hidden="true">≡</span> 学科与维度</a>
+      <a class="nav-item" href="#method"><span aria-hidden="true">◷</span> 运行与方法</a>
+    </nav>
+    <div class="side-note"><span class="mini-label">A SHARED MEASURE</span><p>同一把尺，<br>看清表现。</p><span>按数据与配置分组比较，<br>让每个数字都有出处。</span></div>
+    <div class="sidebar-footer"><span class="status-dot"></span> 汇总结果 · 本地看板</div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div><span class="muted">评测空间</span><span class="crumb">/</span><strong>模型对比</strong></div><div class="top-actions"><span id="catalog-count" class="catalog-count">正在读取数据</span><button id="export" class="button outline" type="button" disabled>↓ 导出当前数据</button></div></header>
+    <main id="main">
+      <section class="hero" id="overview"><div><div class="eyebrow"><span></span> MODEL EVALUATION EXPLORER</div><h1>模型表现，全景对照<span>。</span></h1><p>从整体成绩到具体学科，找到优势，也看见边界。</p></div><div class="hero-aside"><span class="mini-label">EVIDENCE OVER ASSUMPTION</span><span id="run-date">以真实评测结果为据</span></div></section>
+      <div id="load-state" class="load-state" role="status">正在加载评测数据…</div>
+      <div id="app-content" hidden>
+        <section class="filters panel" aria-label="评测筛选">
+          <label>评测集<select id="benchmark"></select></label>
+          <label>数据分组<select id="split"></select></label>
+          <label class="configuration">比较配置<select id="group"></select></label>
+          <label>评分口径<select id="metric"></select></label>
+          <button id="reset" class="text-button" type="button">重置筛选 ↺</button>
+        </section>
+        <p id="scope-note" class="scope-note"></p>
+        <section id="kpis" class="kpis" aria-label="当前评测概览"></section>
+        <section class="panel model-panel"><div class="section-heading"><div><span class="eyebrow subdued">01 / OVERALL</span><h2>整体表现</h2></div><span class="hint">勾选要比较的运行</span></div><div id="models" class="model-cards"></div></section>
+        <div class="chart-grid">
+          <section class="panel category-panel"><div class="section-heading"><div><span class="eyebrow subdued">02 / CATEGORIES</span><h2>类别表现</h2></div><span id="chart-unit" class="hint"></span></div><div id="legend" class="legend"></div><div id="category-chart"></div></section>
+          <section class="panel delta-panel"><div class="section-heading"><div><span class="eyebrow subdued">03 / DIFFERENCES</span><h2>优势与差距</h2></div><span class="hint">相对基准</span></div><div class="compare-controls"><label>基准<select id="baseline"></select></label><span aria-hidden="true">→</span><label>对比运行<select id="target"></select></label></div><div id="comparison-summary" class="comparison-summary"></div><div id="delta-chart"></div></section>
+        </div>
+        <section class="panel dimensions-panel" id="dimensions"><div class="section-heading"><div><span class="eyebrow subdued">04 / DIMENSIONS</span><h2>每个学科，都值得细看</h2></div><span id="dimension-count" class="hint"></span></div><div class="table-controls"><label class="search-field"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜索学科或维度" aria-label="搜索学科或维度"></label><label><span class="sr-only">筛选类别</span><select id="category"></select></label><label><span class="sr-only">排序方式</span><select id="sort"><option value="delta-desc">对比运行提升最多</option><option value="delta-asc">对比运行落后最多</option><option value="score-asc">对比运行得分最低</option><option value="score-desc">对比运行得分最高</option><option value="name">按名称排序</option></select></label></div><div class="table-wrap" tabindex="0" role="region" aria-label="可横向滚动的学科结果表"><table><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div><p id="table-note" class="table-note"></p></section>
+        <section class="panel method-panel" id="method"><div class="section-heading"><div><span class="eyebrow subdued">05 / CONTEXT</span><h2>读懂成绩，也读懂评测</h2></div><button id="method-toggle" class="text-button" aria-expanded="false" aria-controls="method-details" type="button">展开配置 ↓</button></div><div class="method-summary"><div><span class="status-dot"></span><p>只比较相同数据与配置的运行</p></div><p>公开题集的成绩可能受训练数据污染影响。单项测试结果应与真实任务测试结合使用。</p></div><div id="method-details" hidden><dl id="protocol-details" class="protocol-details"></dl><div class="table-wrap"><table><thead><tr><th>运行</th><th>样本 / 正确</th><th>请求失败 / 未提取答案</th><th>来源</th></tr></thead><tbody id="run-table"></tbody></table></div><div id="run-notes" class="run-notes"></div></div></section>
+        <footer class="footer"><span>EVAL ATLAS <span class="muted">/ 每次评测，留下可比较的证据</span></span><span id="footer-count"></span></footer>
+      </div>
+      <noscript><p class="load-state">请启用 JavaScript 查看交互图表。原始汇总报告和比较结论仍可在仓库中阅读。</p></noscript>
+    </main>
+  </div>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>

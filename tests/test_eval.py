@@ -1,3 +1,4 @@
+import io
 import json
 import os
 from pathlib import Path
@@ -14,6 +15,26 @@ import eval as evaluator
 
 
 class EvaluationTest(unittest.TestCase):
+    def test_rate_limit_recovers_without_changing_request(self):
+        limited = evaluator.error.HTTPError("https://api.deepseek.com/chat/completions", 429, "limited", {"Retry-After": "3"}, io.BytesIO(b"private error"))
+        response = io.BytesIO(b'{"model":"deepseek-v4-pro"}')
+        payload = {"model": "deepseek-v4-pro", "thinking": {"type": "disabled"}, "temperature": 0}
+        with patch.object(evaluator.request, "urlopen", side_effect=[limited, response]) as call, patch.object(evaluator.time, "sleep") as sleep:
+            result = evaluator.api_json(evaluator.DEFAULT_BASE_URL, "/chat/completions", "fake-key", payload)
+        self.assertEqual(result["model"], "deepseek-v4-pro")
+        self.assertEqual(call.call_args_list[0].args[0].data, call.call_args_list[1].args[0].data)
+        self.assertEqual(json.loads(call.call_args.args[0].data), payload)
+        sleep.assert_called_once_with(3)
+
+    def test_persistent_rate_limit_is_bounded_and_auth_error_is_not_retried(self):
+        for status, expected_calls in ((429, 6), (401, 1)):
+            with self.subTest(status=status):
+                failure = evaluator.error.HTTPError("https://api.deepseek.com", status, "private account detail", {}, None)
+                with patch.object(evaluator.request, "urlopen", side_effect=failure) as call, patch.object(evaluator.time, "sleep"):
+                    with self.assertRaisesRegex(RuntimeError, f"^HTTP {status} from API$"):
+                        evaluator.api_json(evaluator.DEFAULT_BASE_URL, "/models", "fake-key")
+                self.assertEqual(call.call_count, expected_calls)
+
     def test_scoring(self):
         self.assertTrue(evaluator.score({"grader": "number", "answer": 198}, "198"))
         self.assertFalse(evaluator.score({"grader": "number", "answer": 198}, "约 198 元"))

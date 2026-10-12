@@ -1,0 +1,3172 @@
+{
+  "schema_version": 1,
+  "benchmarks": [
+    {
+      "id": "ceval",
+      "name": "C-Eval",
+      "description": "中文学科知识 · 单项选择 · 52 学科",
+      "metrics": [
+        {
+          "id": "accuracy",
+          "name": "逐题正确率",
+          "unit": "%",
+          "range": [
+            0,
+            100
+          ],
+          "higher_is_better": true
+        },
+        {
+          "id": "macro_accuracy",
+          "name": "学科等权平均",
+          "unit": "%",
+          "range": [
+            0,
+            100
+          ],
+          "higher_is_better": true
+        }
+      ]
+    },
+    {
+      "id": "mmlu-pro",
+      "name": "MMLU-Pro",
+      "description": "英文知识与推理 · 14 领域 · 5-shot CoT",
+      "metrics": [
+        {
+          "id": "accuracy",
+          "name": "逐题正确率",
+          "unit": "%",
+          "range": [
+            0,
+            100
+          ],
+          "higher_is_better": true
+        },
+        {
+          "id": "macro_accuracy",
+          "name": "领域等权平均",
+          "unit": "%",
+          "range": [
+            0,
+            100
+          ],
+          "higher_is_better": true
+        }
+      ]
+    }
+  ],
+  "models": [
+    {
+      "id": "deepseek-flash",
+      "name": "DeepSeek Flash",
+      "provider": "DeepSeek"
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "provider": "DeepSeek"
+    }
+  ],
+  "runs": [
+    {
+      "id": "ceval-test-flash-history",
+      "benchmark_id": "ceval",
+      "model_id": "deepseek-flash",
+      "date": null,
+      "source": "results/ceval-deepseek-test.md",
+      "notes": [
+        "历史汇总结果；未提供不可变模型快照。",
+        "耗时与本次 Pro 运行不可直接比较。"
+      ],
+      "split": "test",
+      "dataset_fingerprint": "a17ff4dcf2c4a49ee744bd9ee0b0b8501fec889d269129b4e6ef7d86196270e0",
+      "protocol": {
+        "prompt_version": "ceval-answer-only-zero-shot-nonthinking-v2",
+        "shots": 0,
+        "thinking": "disabled",
+        "temperature": 0,
+        "max_tokens": 32,
+        "selection": "full"
+      },
+      "metrics": {
+        "accuracy": 88.00032409658078,
+        "macro_accuracy": 88.22394645351068
+      },
+      "status": "completed",
+      "counts": {
+        "total": 12342,
+        "valid": 12342,
+        "correct": 10861,
+        "failed": 0,
+        "unparsed": 0
+      },
+      "categories": [
+        {
+          "id": "Other",
+          "name": "其他 / 职业资格等",
+          "metrics": {
+            "accuracy": 87.60377898654453,
+            "macro_accuracy": 87.69617590877183
+          },
+          "counts": {
+            "valid": 3493,
+            "correct": 3060
+          }
+        },
+        {
+          "id": "STEM",
+          "name": "理工科",
+          "metrics": {
+            "accuracy": 86.05296343001261,
+            "macro_accuracy": 86.3461874211277
+          },
+          "counts": {
+            "valid": 3965,
+            "correct": 3412
+          }
+        },
+        {
+          "id": "Humanities",
+          "name": "人文学科",
+          "metrics": {
+            "accuracy": 88.70558375634518,
+            "macro_accuracy": 88.3264478076053
+          },
+          "counts": {
+            "valid": 2364,
+            "correct": 2097
+          }
+        },
+        {
+          "id": "Social Science",
+          "name": "社会科学",
+          "metrics": {
+            "accuracy": 90.95238095238095,
+            "macro_accuracy": 92.44726062798524
+          },
+          "counts": {
+            "valid": 2520,
+            "correct": 2292
+          }
+        }
+      ],
+      "dimensions": [
+        {
+          "id": "accountant",
+          "name": "注册会计师",
+          "metrics": {
+            "accuracy": 88.93905191873588,
+            "macro_accuracy": 88.93905191873588
+          },
+          "counts": {
+            "total": 443,
+            "valid": 443,
+            "correct": 394,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "advanced_mathematics",
+          "name": "高等数学",
+          "metrics": {
+            "accuracy": 67.63005780346822,
+            "macro_accuracy": 67.63005780346822
+          },
+          "counts": {
+            "total": 173,
+            "valid": 173,
+            "correct": 117,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "art_studies",
+          "name": "艺术学",
+          "metrics": {
+            "accuracy": 93.95973154362416,
+            "macro_accuracy": 93.95973154362416
+          },
+          "counts": {
+            "total": 298,
+            "valid": 298,
+            "correct": 280,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "basic_medicine",
+          "name": "基础医学",
+          "metrics": {
+            "accuracy": 91.42857142857143,
+            "macro_accuracy": 91.42857142857143
+          },
+          "counts": {
+            "total": 175,
+            "valid": 175,
+            "correct": 160,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "business_administration",
+          "name": "工商管理",
+          "metrics": {
+            "accuracy": 83.38870431893687,
+            "macro_accuracy": 83.38870431893687
+          },
+          "counts": {
+            "total": 301,
+            "valid": 301,
+            "correct": 251,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "chinese_language_and_literature",
+          "name": "中国语言文学",
+          "metrics": {
+            "accuracy": 87.08133971291866,
+            "macro_accuracy": 87.08133971291866
+          },
+          "counts": {
+            "total": 209,
+            "valid": 209,
+            "correct": 182,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "civil_servant",
+          "name": "公务员",
+          "metrics": {
+            "accuracy": 89.27738927738928,
+            "macro_accuracy": 89.27738927738928
+          },
+          "counts": {
+            "total": 429,
+            "valid": 429,
+            "correct": 383,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "clinical_medicine",
+          "name": "临床医学",
+          "metrics": {
+            "accuracy": 94.0,
+            "macro_accuracy": 94.0
+          },
+          "counts": {
+            "total": 200,
+            "valid": 200,
+            "correct": 188,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "college_chemistry",
+          "name": "大学化学",
+          "metrics": {
+            "accuracy": 78.125,
+            "macro_accuracy": 78.125
+          },
+          "counts": {
+            "total": 224,
+            "valid": 224,
+            "correct": 175,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "college_economics",
+          "name": "大学经济学",
+          "metrics": {
+            "accuracy": 82.897384305835,
+            "macro_accuracy": 82.897384305835
+          },
+          "counts": {
+            "total": 497,
+            "valid": 497,
+            "correct": 412,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "college_physics",
+          "name": "大学物理",
+          "metrics": {
+            "accuracy": 89.77272727272727,
+            "macro_accuracy": 89.77272727272727
+          },
+          "counts": {
+            "total": 176,
+            "valid": 176,
+            "correct": 158,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "college_programming",
+          "name": "大学编程",
+          "metrics": {
+            "accuracy": 85.08771929824562,
+            "macro_accuracy": 85.08771929824562
+          },
+          "counts": {
+            "total": 342,
+            "valid": 342,
+            "correct": 291,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "computer_architecture",
+          "name": "计算机组成",
+          "metrics": {
+            "accuracy": 90.15544041450777,
+            "macro_accuracy": 90.15544041450777
+          },
+          "counts": {
+            "total": 193,
+            "valid": 193,
+            "correct": 174,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "computer_network",
+          "name": "计算机网络",
+          "metrics": {
+            "accuracy": 90.05847953216374,
+            "macro_accuracy": 90.05847953216374
+          },
+          "counts": {
+            "total": 171,
+            "valid": 171,
+            "correct": 154,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "discrete_mathematics",
+          "name": "离散数学",
+          "metrics": {
+            "accuracy": 76.47058823529412,
+            "macro_accuracy": 76.47058823529412
+          },
+          "counts": {
+            "total": 153,
+            "valid": 153,
+            "correct": 117,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "education_science",
+          "name": "教育学",
+          "metrics": {
+            "accuracy": 87.03703703703704,
+            "macro_accuracy": 87.03703703703704
+          },
+          "counts": {
+            "total": 270,
+            "valid": 270,
+            "correct": 235,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "electrical_engineer",
+          "name": "注册电气工程师",
+          "metrics": {
+            "accuracy": 74.92625368731564,
+            "macro_accuracy": 74.92625368731564
+          },
+          "counts": {
+            "total": 339,
+            "valid": 339,
+            "correct": 254,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "environmental_impact_assessment_engineer",
+          "name": "环境影响评价工程师",
+          "metrics": {
+            "accuracy": 84.34163701067615,
+            "macro_accuracy": 84.34163701067615
+          },
+          "counts": {
+            "total": 281,
+            "valid": 281,
+            "correct": 237,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "fire_engineer",
+          "name": "注册消防工程师",
+          "metrics": {
+            "accuracy": 80.85106382978722,
+            "macro_accuracy": 80.85106382978722
+          },
+          "counts": {
+            "total": 282,
+            "valid": 282,
+            "correct": 228,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "high_school_biology",
+          "name": "高中生物",
+          "metrics": {
+            "accuracy": 95.42857142857143,
+            "macro_accuracy": 95.42857142857143
+          },
+          "counts": {
+            "total": 175,
+            "valid": 175,
+            "correct": 167,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "high_school_chemistry",
+          "name": "高中化学",
+          "metrics": {
+            "accuracy": 93.6046511627907,
+            "macro_accuracy": 93.6046511627907
+          },
+          "counts": {
+            "total": 172,
+            "valid": 172,
+            "correct": 161,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "high_school_chinese",
+          "name": "高中语文",
+          "metrics": {
+            "accuracy": 79.21348314606742,
+            "macro_accuracy": 79.21348314606742
+          },
+          "counts": {
+            "total": 178,
+            "valid": 178,
+            "correct": 141,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "high_school_geography",
+          "name": "高中地理",
+          "metrics": {
+            "accuracy": 94.9438202247191,
+            "macro_accuracy": 94.9438202247191
+          },
+          "counts": {
+            "total": 178,
+            "valid": 178,
+            "correct": 169,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "high_school_history",
+          "name": "高中历史",
+          "metrics": {
+            "accuracy": 90.10989010989012,
+            "macro_accuracy": 90.10989010989012
+          },
+          "counts": {
+            "total": 182,
+            "valid": 182,
+            "correct": 164,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "high_school_mathematics",
+          "name": "高中数学",
+          "metrics": {
+            "accuracy": 68.07228915662651,
+            "macro_accuracy": 68.07228915662651
+          },
+          "counts": {
+            "total": 166,
+            "valid": 166,
+            "correct": 113,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "high_school_physics",
+          "name": "高中物理",
+          "metrics": {
+            "accuracy": 91.42857142857143,
+            "macro_accuracy": 91.42857142857143
+          },
+          "counts": {
+            "total": 175,
+            "valid": 175,
+            "correct": 160,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "high_school_politics",
+          "name": "高中政治",
+          "metrics": {
+            "accuracy": 92.04545454545455,
+            "macro_accuracy": 92.04545454545455
+          },
+          "counts": {
+            "total": 176,
+            "valid": 176,
+            "correct": 162,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "ideological_and_moral_cultivation",
+          "name": "思想道德修养与法律基础",
+          "metrics": {
+            "accuracy": 91.27906976744185,
+            "macro_accuracy": 91.27906976744185
+          },
+          "counts": {
+            "total": 172,
+            "valid": 172,
+            "correct": 157,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "law",
+          "name": "法学",
+          "metrics": {
+            "accuracy": 83.710407239819,
+            "macro_accuracy": 83.710407239819
+          },
+          "counts": {
+            "total": 221,
+            "valid": 221,
+            "correct": 185,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "legal_professional",
+          "name": "法律职业资格",
+          "metrics": {
+            "accuracy": 77.20930232558139,
+            "macro_accuracy": 77.20930232558139
+          },
+          "counts": {
+            "total": 215,
+            "valid": 215,
+            "correct": 166,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "logic",
+          "name": "逻辑学",
+          "metrics": {
+            "accuracy": 86.76470588235294,
+            "macro_accuracy": 86.76470588235294
+          },
+          "counts": {
+            "total": 204,
+            "valid": 204,
+            "correct": 177,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "mao_zedong_thought",
+          "name": "毛泽东思想和中国特色社会主义理论体系概论",
+          "metrics": {
+            "accuracy": 96.34703196347031,
+            "macro_accuracy": 96.34703196347031
+          },
+          "counts": {
+            "total": 219,
+            "valid": 219,
+            "correct": 211,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "marxism",
+          "name": "马克思主义基本原理",
+          "metrics": {
+            "accuracy": 95.53072625698324,
+            "macro_accuracy": 95.53072625698324
+          },
+          "counts": {
+            "total": 179,
+            "valid": 179,
+            "correct": 171,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "metrology_engineer",
+          "name": "注册计量师",
+          "metrics": {
+            "accuracy": 89.95433789954338,
+            "macro_accuracy": 89.95433789954338
+          },
+          "counts": {
+            "total": 219,
+            "valid": 219,
+            "correct": 197,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_biology",
+          "name": "初中生物",
+          "metrics": {
+            "accuracy": 97.91666666666666,
+            "macro_accuracy": 97.91666666666666
+          },
+          "counts": {
+            "total": 192,
+            "valid": 192,
+            "correct": 188,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_chemistry",
+          "name": "初中化学",
+          "metrics": {
+            "accuracy": 98.37837837837839,
+            "macro_accuracy": 98.37837837837839
+          },
+          "counts": {
+            "total": 185,
+            "valid": 185,
+            "correct": 182,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_geography",
+          "name": "初中地理",
+          "metrics": {
+            "accuracy": 98.14814814814815,
+            "macro_accuracy": 98.14814814814815
+          },
+          "counts": {
+            "total": 108,
+            "valid": 108,
+            "correct": 106,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "middle_school_history",
+          "name": "初中历史",
+          "metrics": {
+            "accuracy": 95.16908212560386,
+            "macro_accuracy": 95.16908212560386
+          },
+          "counts": {
+            "total": 207,
+            "valid": 207,
+            "correct": 197,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "middle_school_mathematics",
+          "name": "初中数学",
+          "metrics": {
+            "accuracy": 87.00564971751412,
+            "macro_accuracy": 87.00564971751412
+          },
+          "counts": {
+            "total": 177,
+            "valid": 177,
+            "correct": 154,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_physics",
+          "name": "初中物理",
+          "metrics": {
+            "accuracy": 98.87640449438202,
+            "macro_accuracy": 98.87640449438202
+          },
+          "counts": {
+            "total": 178,
+            "valid": 178,
+            "correct": 176,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_politics",
+          "name": "初中政治",
+          "metrics": {
+            "accuracy": 96.89119170984456,
+            "macro_accuracy": 96.89119170984456
+          },
+          "counts": {
+            "total": 193,
+            "valid": 193,
+            "correct": 187,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "modern_chinese_history",
+          "name": "近代史纲要",
+          "metrics": {
+            "accuracy": 91.98113207547169,
+            "macro_accuracy": 91.98113207547169
+          },
+          "counts": {
+            "total": 212,
+            "valid": 212,
+            "correct": 195,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "operating_system",
+          "name": "操作系统",
+          "metrics": {
+            "accuracy": 83.24022346368714,
+            "macro_accuracy": 83.24022346368714
+          },
+          "counts": {
+            "total": 179,
+            "valid": 179,
+            "correct": 149,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "physician",
+          "name": "医师资格",
+          "metrics": {
+            "accuracy": 91.87358916478556,
+            "macro_accuracy": 91.87358916478556
+          },
+          "counts": {
+            "total": 443,
+            "valid": 443,
+            "correct": 407,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "plant_protection",
+          "name": "植物保护",
+          "metrics": {
+            "accuracy": 90.45226130653266,
+            "macro_accuracy": 90.45226130653266
+          },
+          "counts": {
+            "total": 199,
+            "valid": 199,
+            "correct": 180,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "probability_and_statistics",
+          "name": "概率统计",
+          "metrics": {
+            "accuracy": 76.50602409638554,
+            "macro_accuracy": 76.50602409638554
+          },
+          "counts": {
+            "total": 166,
+            "valid": 166,
+            "correct": 127,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "professional_tour_guide",
+          "name": "导游资格",
+          "metrics": {
+            "accuracy": 95.11278195488721,
+            "macro_accuracy": 95.11278195488721
+          },
+          "counts": {
+            "total": 266,
+            "valid": 266,
+            "correct": 253,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "sports_science",
+          "name": "体育学",
+          "metrics": {
+            "accuracy": 83.33333333333334,
+            "macro_accuracy": 83.33333333333334
+          },
+          "counts": {
+            "total": 180,
+            "valid": 180,
+            "correct": 150,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "tax_accountant",
+          "name": "税务师",
+          "metrics": {
+            "accuracy": 86.90744920993228,
+            "macro_accuracy": 86.90744920993228
+          },
+          "counts": {
+            "total": 443,
+            "valid": 443,
+            "correct": 385,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "teacher_qualification",
+          "name": "教师资格",
+          "metrics": {
+            "accuracy": 97.24310776942356,
+            "macro_accuracy": 97.24310776942356
+          },
+          "counts": {
+            "total": 399,
+            "valid": 399,
+            "correct": 388,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "urban_and_rural_planner",
+          "name": "注册城乡规划师",
+          "metrics": {
+            "accuracy": 83.25358851674642,
+            "macro_accuracy": 83.25358851674642
+          },
+          "counts": {
+            "total": 418,
+            "valid": 418,
+            "correct": 348,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "veterinary_medicine",
+          "name": "兽医学",
+          "metrics": {
+            "accuracy": 94.28571428571428,
+            "macro_accuracy": 94.28571428571428
+          },
+          "counts": {
+            "total": 210,
+            "valid": 210,
+            "correct": 198,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        }
+      ],
+      "operational": {
+        "latency_seconds": 0.77,
+        "input_tokens": 1536714,
+        "output_tokens": 12342,
+        "latency_comparable": false
+      },
+      "comparison_group": "63ff3df5b5a1f89a"
+    },
+    {
+      "id": "ceval-test-pro-20261012",
+      "benchmark_id": "ceval",
+      "model_id": "deepseek-v4-pro",
+      "date": "2026-10-12",
+      "source": "results/ceval-deepseek-v4-pro-test.md",
+      "notes": [
+        "API 返回名称为 deepseek-v4-pro；不是不可变快照。",
+        "耗时包含限流退避与重试，不用于性能排名。",
+        "5 个多选项回答按错误计分。"
+      ],
+      "split": "test",
+      "dataset_fingerprint": "a17ff4dcf2c4a49ee744bd9ee0b0b8501fec889d269129b4e6ef7d86196270e0",
+      "protocol": {
+        "prompt_version": "ceval-answer-only-zero-shot-nonthinking-v2",
+        "shots": 0,
+        "thinking": "disabled",
+        "temperature": 0,
+        "max_tokens": 32,
+        "selection": "full"
+      },
+      "metrics": {
+        "accuracy": 90.14746394425539,
+        "macro_accuracy": 90.09508735453346
+      },
+      "status": "completed",
+      "counts": {
+        "total": 12342,
+        "valid": 12342,
+        "correct": 11126,
+        "failed": 0,
+        "unparsed": 5
+      },
+      "categories": [
+        {
+          "id": "Other",
+          "name": "其他 / 职业资格等",
+          "metrics": {
+            "accuracy": 91.12510735757229,
+            "macro_accuracy": 90.73405292221823
+          },
+          "counts": {
+            "valid": 3493,
+            "correct": 3183
+          }
+        },
+        {
+          "id": "STEM",
+          "name": "理工科",
+          "metrics": {
+            "accuracy": 87.84363177805801,
+            "macro_accuracy": 88.1337175112904
+          },
+          "counts": {
+            "valid": 3965,
+            "correct": 3483
+          }
+        },
+        {
+          "id": "Humanities",
+          "name": "人文学科",
+          "metrics": {
+            "accuracy": 89.93231810490694,
+            "macro_accuracy": 89.62424999441421
+          },
+          "counts": {
+            "valid": 2364,
+            "correct": 2126
+          }
+        },
+        {
+          "id": "Social Science",
+          "name": "社会科学",
+          "metrics": {
+            "accuracy": 92.61904761904762,
+            "macro_accuracy": 93.83288601269751
+          },
+          "counts": {
+            "valid": 2520,
+            "correct": 2334
+          }
+        }
+      ],
+      "dimensions": [
+        {
+          "id": "accountant",
+          "name": "注册会计师",
+          "metrics": {
+            "accuracy": 93.90519187358916,
+            "macro_accuracy": 93.90519187358916
+          },
+          "counts": {
+            "total": 443,
+            "valid": 443,
+            "correct": 416,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "advanced_mathematics",
+          "name": "高等数学",
+          "metrics": {
+            "accuracy": 72.25433526011561,
+            "macro_accuracy": 72.25433526011561
+          },
+          "counts": {
+            "total": 173,
+            "valid": 173,
+            "correct": 125,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "art_studies",
+          "name": "艺术学",
+          "metrics": {
+            "accuracy": 93.6241610738255,
+            "macro_accuracy": 93.6241610738255
+          },
+          "counts": {
+            "total": 298,
+            "valid": 298,
+            "correct": 279,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "basic_medicine",
+          "name": "基础医学",
+          "metrics": {
+            "accuracy": 91.42857142857143,
+            "macro_accuracy": 91.42857142857143
+          },
+          "counts": {
+            "total": 175,
+            "valid": 175,
+            "correct": 160,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "business_administration",
+          "name": "工商管理",
+          "metrics": {
+            "accuracy": 88.70431893687709,
+            "macro_accuracy": 88.70431893687709
+          },
+          "counts": {
+            "total": 301,
+            "valid": 301,
+            "correct": 267,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "chinese_language_and_literature",
+          "name": "中国语言文学",
+          "metrics": {
+            "accuracy": 88.99521531100478,
+            "macro_accuracy": 88.99521531100478
+          },
+          "counts": {
+            "total": 209,
+            "valid": 209,
+            "correct": 186,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "civil_servant",
+          "name": "公务员",
+          "metrics": {
+            "accuracy": 94.63869463869464,
+            "macro_accuracy": 94.63869463869464
+          },
+          "counts": {
+            "total": 429,
+            "valid": 429,
+            "correct": 406,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "clinical_medicine",
+          "name": "临床医学",
+          "metrics": {
+            "accuracy": 91.0,
+            "macro_accuracy": 91.0
+          },
+          "counts": {
+            "total": 200,
+            "valid": 200,
+            "correct": 182,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "college_chemistry",
+          "name": "大学化学",
+          "metrics": {
+            "accuracy": 79.91071428571429,
+            "macro_accuracy": 79.91071428571429
+          },
+          "counts": {
+            "total": 224,
+            "valid": 224,
+            "correct": 179,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "college_economics",
+          "name": "大学经济学",
+          "metrics": {
+            "accuracy": 84.90945674044266,
+            "macro_accuracy": 84.90945674044266
+          },
+          "counts": {
+            "total": 497,
+            "valid": 497,
+            "correct": 422,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "college_physics",
+          "name": "大学物理",
+          "metrics": {
+            "accuracy": 94.31818181818183,
+            "macro_accuracy": 94.31818181818183
+          },
+          "counts": {
+            "total": 176,
+            "valid": 176,
+            "correct": 166,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "college_programming",
+          "name": "大学编程",
+          "metrics": {
+            "accuracy": 88.01169590643275,
+            "macro_accuracy": 88.01169590643275
+          },
+          "counts": {
+            "total": 342,
+            "valid": 342,
+            "correct": 301,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "computer_architecture",
+          "name": "计算机组成",
+          "metrics": {
+            "accuracy": 88.60103626943005,
+            "macro_accuracy": 88.60103626943005
+          },
+          "counts": {
+            "total": 193,
+            "valid": 193,
+            "correct": 171,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "computer_network",
+          "name": "计算机网络",
+          "metrics": {
+            "accuracy": 94.15204678362574,
+            "macro_accuracy": 94.15204678362574
+          },
+          "counts": {
+            "total": 171,
+            "valid": 171,
+            "correct": 161,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "discrete_mathematics",
+          "name": "离散数学",
+          "metrics": {
+            "accuracy": 75.81699346405229,
+            "macro_accuracy": 75.81699346405229
+          },
+          "counts": {
+            "total": 153,
+            "valid": 153,
+            "correct": 116,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "education_science",
+          "name": "教育学",
+          "metrics": {
+            "accuracy": 88.88888888888889,
+            "macro_accuracy": 88.88888888888889
+          },
+          "counts": {
+            "total": 270,
+            "valid": 270,
+            "correct": 240,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "electrical_engineer",
+          "name": "注册电气工程师",
+          "metrics": {
+            "accuracy": 77.28613569321534,
+            "macro_accuracy": 77.28613569321534
+          },
+          "counts": {
+            "total": 339,
+            "valid": 339,
+            "correct": 262,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "environmental_impact_assessment_engineer",
+          "name": "环境影响评价工程师",
+          "metrics": {
+            "accuracy": 87.90035587188612,
+            "macro_accuracy": 87.90035587188612
+          },
+          "counts": {
+            "total": 281,
+            "valid": 281,
+            "correct": 247,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "fire_engineer",
+          "name": "注册消防工程师",
+          "metrics": {
+            "accuracy": 92.19858156028369,
+            "macro_accuracy": 92.19858156028369
+          },
+          "counts": {
+            "total": 282,
+            "valid": 282,
+            "correct": 260,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "high_school_biology",
+          "name": "高中生物",
+          "metrics": {
+            "accuracy": 96.0,
+            "macro_accuracy": 96.0
+          },
+          "counts": {
+            "total": 175,
+            "valid": 175,
+            "correct": 168,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "high_school_chemistry",
+          "name": "高中化学",
+          "metrics": {
+            "accuracy": 95.34883720930233,
+            "macro_accuracy": 95.34883720930233
+          },
+          "counts": {
+            "total": 172,
+            "valid": 172,
+            "correct": 164,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "high_school_chinese",
+          "name": "高中语文",
+          "metrics": {
+            "accuracy": 81.46067415730337,
+            "macro_accuracy": 81.46067415730337
+          },
+          "counts": {
+            "total": 178,
+            "valid": 178,
+            "correct": 145,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "high_school_geography",
+          "name": "高中地理",
+          "metrics": {
+            "accuracy": 96.06741573033707,
+            "macro_accuracy": 96.06741573033707
+          },
+          "counts": {
+            "total": 178,
+            "valid": 178,
+            "correct": 171,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "high_school_history",
+          "name": "高中历史",
+          "metrics": {
+            "accuracy": 89.01098901098901,
+            "macro_accuracy": 89.01098901098901
+          },
+          "counts": {
+            "total": 182,
+            "valid": 182,
+            "correct": 162,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "high_school_mathematics",
+          "name": "高中数学",
+          "metrics": {
+            "accuracy": 76.50602409638554,
+            "macro_accuracy": 76.50602409638554
+          },
+          "counts": {
+            "total": 166,
+            "valid": 166,
+            "correct": 127,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "high_school_physics",
+          "name": "高中物理",
+          "metrics": {
+            "accuracy": 93.71428571428572,
+            "macro_accuracy": 93.71428571428572
+          },
+          "counts": {
+            "total": 175,
+            "valid": 175,
+            "correct": 164,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "high_school_politics",
+          "name": "高中政治",
+          "metrics": {
+            "accuracy": 92.04545454545455,
+            "macro_accuracy": 92.04545454545455
+          },
+          "counts": {
+            "total": 176,
+            "valid": 176,
+            "correct": 162,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "ideological_and_moral_cultivation",
+          "name": "思想道德修养与法律基础",
+          "metrics": {
+            "accuracy": 90.11627906976744,
+            "macro_accuracy": 90.11627906976744
+          },
+          "counts": {
+            "total": 172,
+            "valid": 172,
+            "correct": 155,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "law",
+          "name": "法学",
+          "metrics": {
+            "accuracy": 88.23529411764706,
+            "macro_accuracy": 88.23529411764706
+          },
+          "counts": {
+            "total": 221,
+            "valid": 221,
+            "correct": 195,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "legal_professional",
+          "name": "法律职业资格",
+          "metrics": {
+            "accuracy": 80.0,
+            "macro_accuracy": 80.0
+          },
+          "counts": {
+            "total": 215,
+            "valid": 215,
+            "correct": 172,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "logic",
+          "name": "逻辑学",
+          "metrics": {
+            "accuracy": 91.17647058823529,
+            "macro_accuracy": 91.17647058823529
+          },
+          "counts": {
+            "total": 204,
+            "valid": 204,
+            "correct": 186,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "mao_zedong_thought",
+          "name": "毛泽东思想和中国特色社会主义理论体系概论",
+          "metrics": {
+            "accuracy": 98.63013698630137,
+            "macro_accuracy": 98.63013698630137
+          },
+          "counts": {
+            "total": 219,
+            "valid": 219,
+            "correct": 216,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "marxism",
+          "name": "马克思主义基本原理",
+          "metrics": {
+            "accuracy": 95.53072625698324,
+            "macro_accuracy": 95.53072625698324
+          },
+          "counts": {
+            "total": 179,
+            "valid": 179,
+            "correct": 171,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "metrology_engineer",
+          "name": "注册计量师",
+          "metrics": {
+            "accuracy": 88.12785388127854,
+            "macro_accuracy": 88.12785388127854
+          },
+          "counts": {
+            "total": 219,
+            "valid": 219,
+            "correct": 193,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_biology",
+          "name": "初中生物",
+          "metrics": {
+            "accuracy": 97.91666666666666,
+            "macro_accuracy": 97.91666666666666
+          },
+          "counts": {
+            "total": 192,
+            "valid": 192,
+            "correct": 188,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_chemistry",
+          "name": "初中化学",
+          "metrics": {
+            "accuracy": 98.91891891891892,
+            "macro_accuracy": 98.91891891891892
+          },
+          "counts": {
+            "total": 185,
+            "valid": 185,
+            "correct": 183,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_geography",
+          "name": "初中地理",
+          "metrics": {
+            "accuracy": 98.14814814814815,
+            "macro_accuracy": 98.14814814814815
+          },
+          "counts": {
+            "total": 108,
+            "valid": 108,
+            "correct": 106,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "middle_school_history",
+          "name": "初中历史",
+          "metrics": {
+            "accuracy": 96.61835748792271,
+            "macro_accuracy": 96.61835748792271
+          },
+          "counts": {
+            "total": 207,
+            "valid": 207,
+            "correct": 200,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "middle_school_mathematics",
+          "name": "初中数学",
+          "metrics": {
+            "accuracy": 92.65536723163842,
+            "macro_accuracy": 92.65536723163842
+          },
+          "counts": {
+            "total": 177,
+            "valid": 177,
+            "correct": 164,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_physics",
+          "name": "初中物理",
+          "metrics": {
+            "accuracy": 99.43820224719101,
+            "macro_accuracy": 99.43820224719101
+          },
+          "counts": {
+            "total": 178,
+            "valid": 178,
+            "correct": 177,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_politics",
+          "name": "初中政治",
+          "metrics": {
+            "accuracy": 97.40932642487047,
+            "macro_accuracy": 97.40932642487047
+          },
+          "counts": {
+            "total": 193,
+            "valid": 193,
+            "correct": 188,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "modern_chinese_history",
+          "name": "近代史纲要",
+          "metrics": {
+            "accuracy": 93.39622641509435,
+            "macro_accuracy": 93.39622641509435
+          },
+          "counts": {
+            "total": 212,
+            "valid": 212,
+            "correct": 198,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "operating_system",
+          "name": "操作系统",
+          "metrics": {
+            "accuracy": 82.68156424581005,
+            "macro_accuracy": 82.68156424581005
+          },
+          "counts": {
+            "total": 179,
+            "valid": 179,
+            "correct": 148,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "physician",
+          "name": "医师资格",
+          "metrics": {
+            "accuracy": 94.80812641083521,
+            "macro_accuracy": 94.80812641083521
+          },
+          "counts": {
+            "total": 443,
+            "valid": 443,
+            "correct": 420,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "plant_protection",
+          "name": "植物保护",
+          "metrics": {
+            "accuracy": 89.9497487437186,
+            "macro_accuracy": 89.9497487437186
+          },
+          "counts": {
+            "total": 199,
+            "valid": 199,
+            "correct": 179,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "probability_and_statistics",
+          "name": "概率统计",
+          "metrics": {
+            "accuracy": 75.30120481927712,
+            "macro_accuracy": 75.30120481927712
+          },
+          "counts": {
+            "total": 166,
+            "valid": 166,
+            "correct": 125,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "professional_tour_guide",
+          "name": "导游资格",
+          "metrics": {
+            "accuracy": 93.23308270676691,
+            "macro_accuracy": 93.23308270676691
+          },
+          "counts": {
+            "total": 266,
+            "valid": 266,
+            "correct": 248,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "sports_science",
+          "name": "体育学",
+          "metrics": {
+            "accuracy": 86.66666666666667,
+            "macro_accuracy": 86.66666666666667
+          },
+          "counts": {
+            "total": 180,
+            "valid": 180,
+            "correct": 156,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "tax_accountant",
+          "name": "税务师",
+          "metrics": {
+            "accuracy": 92.32505643340858,
+            "macro_accuracy": 92.32505643340858
+          },
+          "counts": {
+            "total": 443,
+            "valid": 443,
+            "correct": 409,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "teacher_qualification",
+          "name": "教师资格",
+          "metrics": {
+            "accuracy": 97.99498746867168,
+            "macro_accuracy": 97.99498746867168
+          },
+          "counts": {
+            "total": 399,
+            "valid": 399,
+            "correct": 391,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "urban_and_rural_planner",
+          "name": "注册城乡规划师",
+          "metrics": {
+            "accuracy": 83.25358851674642,
+            "macro_accuracy": 83.25358851674642
+          },
+          "counts": {
+            "total": 418,
+            "valid": 418,
+            "correct": 348,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "veterinary_medicine",
+          "name": "兽医学",
+          "metrics": {
+            "accuracy": 95.71428571428572,
+            "macro_accuracy": 95.71428571428572
+          },
+          "counts": {
+            "total": 210,
+            "valid": 210,
+            "correct": 201,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        }
+      ],
+      "operational": {
+        "latency_seconds": 1.04,
+        "input_tokens": 1524372,
+        "output_tokens": 12344,
+        "latency_comparable": false
+      },
+      "comparison_group": "63ff3df5b5a1f89a"
+    },
+    {
+      "id": "ceval-val-flash-history",
+      "benchmark_id": "ceval",
+      "model_id": "deepseek-flash",
+      "date": null,
+      "source": "results/ceval-deepseek-v2.md",
+      "notes": [
+        "历史验证集结果；与 test 分开展示。",
+        "未提供不可变模型快照。"
+      ],
+      "split": "val",
+      "dataset_fingerprint": "c34f1722fe977bd77907106fdddcf95386c032f96aa763fd8574779aa3a3702d",
+      "protocol": {
+        "prompt_version": "ceval-answer-only-zero-shot-nonthinking-v2",
+        "shots": 0,
+        "thinking": "disabled",
+        "temperature": 0,
+        "max_tokens": 32,
+        "selection": "full"
+      },
+      "metrics": {
+        "accuracy": 87.81575037147103,
+        "macro_accuracy": 88.28743382628957
+      },
+      "status": "completed",
+      "counts": {
+        "total": 1346,
+        "valid": 1346,
+        "correct": 1182,
+        "failed": 0,
+        "unparsed": 0
+      },
+      "categories": [
+        {
+          "id": "Other",
+          "name": "其他 / 职业资格等",
+          "metrics": {
+            "accuracy": 86.19791666666666,
+            "macro_accuracy": 86.94469962348907
+          },
+          "counts": {
+            "valid": 384,
+            "correct": 331
+          }
+        },
+        {
+          "id": "STEM",
+          "name": "理工科",
+          "metrics": {
+            "accuracy": 85.34883720930233,
+            "macro_accuracy": 85.12944989775653
+          },
+          "counts": {
+            "valid": 430,
+            "correct": 367
+          }
+        },
+        {
+          "id": "Humanities",
+          "name": "人文学科",
+          "metrics": {
+            "accuracy": 91.43968871595331,
+            "macro_accuracy": 91.40122305093647
+          },
+          "counts": {
+            "valid": 257,
+            "correct": 235
+          }
+        },
+        {
+          "id": "Social Science",
+          "name": "社会科学",
+          "metrics": {
+            "accuracy": 90.54545454545455,
+            "macro_accuracy": 92.65524115932465
+          },
+          "counts": {
+            "valid": 275,
+            "correct": 249
+          }
+        }
+      ],
+      "dimensions": [
+        {
+          "id": "accountant",
+          "name": "注册会计师",
+          "metrics": {
+            "accuracy": 87.75510204081633,
+            "macro_accuracy": 87.75510204081633
+          },
+          "counts": {
+            "total": 49,
+            "valid": 49,
+            "correct": 43,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "advanced_mathematics",
+          "name": "高等数学",
+          "metrics": {
+            "accuracy": 63.1578947368421,
+            "macro_accuracy": 63.1578947368421
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 12,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "art_studies",
+          "name": "艺术学",
+          "metrics": {
+            "accuracy": 90.9090909090909,
+            "macro_accuracy": 90.9090909090909
+          },
+          "counts": {
+            "total": 33,
+            "valid": 33,
+            "correct": 30,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "basic_medicine",
+          "name": "基础医学",
+          "metrics": {
+            "accuracy": 89.47368421052632,
+            "macro_accuracy": 89.47368421052632
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 17,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "business_administration",
+          "name": "工商管理",
+          "metrics": {
+            "accuracy": 75.75757575757575,
+            "macro_accuracy": 75.75757575757575
+          },
+          "counts": {
+            "total": 33,
+            "valid": 33,
+            "correct": 25,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "chinese_language_and_literature",
+          "name": "中国语言文学",
+          "metrics": {
+            "accuracy": 86.95652173913044,
+            "macro_accuracy": 86.95652173913044
+          },
+          "counts": {
+            "total": 23,
+            "valid": 23,
+            "correct": 20,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "civil_servant",
+          "name": "公务员",
+          "metrics": {
+            "accuracy": 85.1063829787234,
+            "macro_accuracy": 85.1063829787234
+          },
+          "counts": {
+            "total": 47,
+            "valid": 47,
+            "correct": 40,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "clinical_medicine",
+          "name": "临床医学",
+          "metrics": {
+            "accuracy": 86.36363636363636,
+            "macro_accuracy": 86.36363636363636
+          },
+          "counts": {
+            "total": 22,
+            "valid": 22,
+            "correct": 19,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "college_chemistry",
+          "name": "大学化学",
+          "metrics": {
+            "accuracy": 87.5,
+            "macro_accuracy": 87.5
+          },
+          "counts": {
+            "total": 24,
+            "valid": 24,
+            "correct": 21,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "college_economics",
+          "name": "大学经济学",
+          "metrics": {
+            "accuracy": 80.0,
+            "macro_accuracy": 80.0
+          },
+          "counts": {
+            "total": 55,
+            "valid": 55,
+            "correct": 44,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "college_physics",
+          "name": "大学物理",
+          "metrics": {
+            "accuracy": 94.73684210526315,
+            "macro_accuracy": 94.73684210526315
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 18,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "college_programming",
+          "name": "大学编程",
+          "metrics": {
+            "accuracy": 91.8918918918919,
+            "macro_accuracy": 91.8918918918919
+          },
+          "counts": {
+            "total": 37,
+            "valid": 37,
+            "correct": 34,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "computer_architecture",
+          "name": "计算机组成",
+          "metrics": {
+            "accuracy": 100.0,
+            "macro_accuracy": 100.0
+          },
+          "counts": {
+            "total": 21,
+            "valid": 21,
+            "correct": 21,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "computer_network",
+          "name": "计算机网络",
+          "metrics": {
+            "accuracy": 78.94736842105263,
+            "macro_accuracy": 78.94736842105263
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 15,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "discrete_mathematics",
+          "name": "离散数学",
+          "metrics": {
+            "accuracy": 75.0,
+            "macro_accuracy": 75.0
+          },
+          "counts": {
+            "total": 16,
+            "valid": 16,
+            "correct": 12,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "education_science",
+          "name": "教育学",
+          "metrics": {
+            "accuracy": 93.10344827586206,
+            "macro_accuracy": 93.10344827586206
+          },
+          "counts": {
+            "total": 29,
+            "valid": 29,
+            "correct": 27,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "electrical_engineer",
+          "name": "注册电气工程师",
+          "metrics": {
+            "accuracy": 75.67567567567568,
+            "macro_accuracy": 75.67567567567568
+          },
+          "counts": {
+            "total": 37,
+            "valid": 37,
+            "correct": 28,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "environmental_impact_assessment_engineer",
+          "name": "环境影响评价工程师",
+          "metrics": {
+            "accuracy": 83.87096774193549,
+            "macro_accuracy": 83.87096774193549
+          },
+          "counts": {
+            "total": 31,
+            "valid": 31,
+            "correct": 26,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "fire_engineer",
+          "name": "注册消防工程师",
+          "metrics": {
+            "accuracy": 77.41935483870968,
+            "macro_accuracy": 77.41935483870968
+          },
+          "counts": {
+            "total": 31,
+            "valid": 31,
+            "correct": 24,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "high_school_biology",
+          "name": "高中生物",
+          "metrics": {
+            "accuracy": 94.73684210526315,
+            "macro_accuracy": 94.73684210526315
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 18,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "high_school_chemistry",
+          "name": "高中化学",
+          "metrics": {
+            "accuracy": 78.94736842105263,
+            "macro_accuracy": 78.94736842105263
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 15,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "high_school_chinese",
+          "name": "高中语文",
+          "metrics": {
+            "accuracy": 84.21052631578947,
+            "macro_accuracy": 84.21052631578947
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 16,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "high_school_geography",
+          "name": "高中地理",
+          "metrics": {
+            "accuracy": 100.0,
+            "macro_accuracy": 100.0
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 19,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "high_school_history",
+          "name": "高中历史",
+          "metrics": {
+            "accuracy": 95.0,
+            "macro_accuracy": 95.0
+          },
+          "counts": {
+            "total": 20,
+            "valid": 20,
+            "correct": 19,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "high_school_mathematics",
+          "name": "高中数学",
+          "metrics": {
+            "accuracy": 55.55555555555556,
+            "macro_accuracy": 55.55555555555556
+          },
+          "counts": {
+            "total": 18,
+            "valid": 18,
+            "correct": 10,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "high_school_physics",
+          "name": "高中物理",
+          "metrics": {
+            "accuracy": 94.73684210526315,
+            "macro_accuracy": 94.73684210526315
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 18,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "high_school_politics",
+          "name": "高中政治",
+          "metrics": {
+            "accuracy": 100.0,
+            "macro_accuracy": 100.0
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 19,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "ideological_and_moral_cultivation",
+          "name": "思想道德修养与法律基础",
+          "metrics": {
+            "accuracy": 94.73684210526315,
+            "macro_accuracy": 94.73684210526315
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 18,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "law",
+          "name": "法学",
+          "metrics": {
+            "accuracy": 83.33333333333334,
+            "macro_accuracy": 83.33333333333334
+          },
+          "counts": {
+            "total": 24,
+            "valid": 24,
+            "correct": 20,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "legal_professional",
+          "name": "法律职业资格",
+          "metrics": {
+            "accuracy": 86.95652173913044,
+            "macro_accuracy": 86.95652173913044
+          },
+          "counts": {
+            "total": 23,
+            "valid": 23,
+            "correct": 20,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "logic",
+          "name": "逻辑学",
+          "metrics": {
+            "accuracy": 95.45454545454545,
+            "macro_accuracy": 95.45454545454545
+          },
+          "counts": {
+            "total": 22,
+            "valid": 22,
+            "correct": 21,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "mao_zedong_thought",
+          "name": "毛泽东思想和中国特色社会主义理论体系概论",
+          "metrics": {
+            "accuracy": 95.83333333333334,
+            "macro_accuracy": 95.83333333333334
+          },
+          "counts": {
+            "total": 24,
+            "valid": 24,
+            "correct": 23,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "marxism",
+          "name": "马克思主义基本原理",
+          "metrics": {
+            "accuracy": 94.73684210526315,
+            "macro_accuracy": 94.73684210526315
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 18,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "metrology_engineer",
+          "name": "注册计量师",
+          "metrics": {
+            "accuracy": 79.16666666666666,
+            "macro_accuracy": 79.16666666666666
+          },
+          "counts": {
+            "total": 24,
+            "valid": 24,
+            "correct": 19,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_biology",
+          "name": "初中生物",
+          "metrics": {
+            "accuracy": 85.71428571428571,
+            "macro_accuracy": 85.71428571428571
+          },
+          "counts": {
+            "total": 21,
+            "valid": 21,
+            "correct": 18,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_chemistry",
+          "name": "初中化学",
+          "metrics": {
+            "accuracy": 100.0,
+            "macro_accuracy": 100.0
+          },
+          "counts": {
+            "total": 20,
+            "valid": 20,
+            "correct": 20,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_geography",
+          "name": "初中地理",
+          "metrics": {
+            "accuracy": 91.66666666666666,
+            "macro_accuracy": 91.66666666666666
+          },
+          "counts": {
+            "total": 12,
+            "valid": 12,
+            "correct": 11,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "middle_school_history",
+          "name": "初中历史",
+          "metrics": {
+            "accuracy": 100.0,
+            "macro_accuracy": 100.0
+          },
+          "counts": {
+            "total": 22,
+            "valid": 22,
+            "correct": 22,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "middle_school_mathematics",
+          "name": "初中数学",
+          "metrics": {
+            "accuracy": 94.73684210526315,
+            "macro_accuracy": 94.73684210526315
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 18,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_physics",
+          "name": "初中物理",
+          "metrics": {
+            "accuracy": 94.73684210526315,
+            "macro_accuracy": 94.73684210526315
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 18,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "middle_school_politics",
+          "name": "初中政治",
+          "metrics": {
+            "accuracy": 100.0,
+            "macro_accuracy": 100.0
+          },
+          "counts": {
+            "total": 21,
+            "valid": 21,
+            "correct": 21,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "modern_chinese_history",
+          "name": "近代史纲要",
+          "metrics": {
+            "accuracy": 91.30434782608695,
+            "macro_accuracy": 91.30434782608695
+          },
+          "counts": {
+            "total": 23,
+            "valid": 23,
+            "correct": 21,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "operating_system",
+          "name": "操作系统",
+          "metrics": {
+            "accuracy": 89.47368421052632,
+            "macro_accuracy": 89.47368421052632
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 17,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "physician",
+          "name": "医师资格",
+          "metrics": {
+            "accuracy": 81.63265306122449,
+            "macro_accuracy": 81.63265306122449
+          },
+          "counts": {
+            "total": 49,
+            "valid": 49,
+            "correct": 40,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "plant_protection",
+          "name": "植物保护",
+          "metrics": {
+            "accuracy": 95.45454545454545,
+            "macro_accuracy": 95.45454545454545
+          },
+          "counts": {
+            "total": 22,
+            "valid": 22,
+            "correct": 21,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "probability_and_statistics",
+          "name": "概率统计",
+          "metrics": {
+            "accuracy": 72.22222222222221,
+            "macro_accuracy": 72.22222222222221
+          },
+          "counts": {
+            "total": 18,
+            "valid": 18,
+            "correct": 13,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        },
+        {
+          "id": "professional_tour_guide",
+          "name": "导游资格",
+          "metrics": {
+            "accuracy": 96.55172413793103,
+            "macro_accuracy": 96.55172413793103
+          },
+          "counts": {
+            "total": 29,
+            "valid": 29,
+            "correct": 28,
+            "failed": 0
+          },
+          "category_id": "Humanities"
+        },
+        {
+          "id": "sports_science",
+          "name": "体育学",
+          "metrics": {
+            "accuracy": 94.73684210526315,
+            "macro_accuracy": 94.73684210526315
+          },
+          "counts": {
+            "total": 19,
+            "valid": 19,
+            "correct": 18,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "tax_accountant",
+          "name": "税务师",
+          "metrics": {
+            "accuracy": 89.79591836734694,
+            "macro_accuracy": 89.79591836734694
+          },
+          "counts": {
+            "total": 49,
+            "valid": 49,
+            "correct": 44,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "teacher_qualification",
+          "name": "教师资格",
+          "metrics": {
+            "accuracy": 95.45454545454545,
+            "macro_accuracy": 95.45454545454545
+          },
+          "counts": {
+            "total": 44,
+            "valid": 44,
+            "correct": 42,
+            "failed": 0
+          },
+          "category_id": "Social Science"
+        },
+        {
+          "id": "urban_and_rural_planner",
+          "name": "注册城乡规划师",
+          "metrics": {
+            "accuracy": 84.78260869565217,
+            "macro_accuracy": 84.78260869565217
+          },
+          "counts": {
+            "total": 46,
+            "valid": 46,
+            "correct": 39,
+            "failed": 0
+          },
+          "category_id": "Other"
+        },
+        {
+          "id": "veterinary_medicine",
+          "name": "兽医学",
+          "metrics": {
+            "accuracy": 95.65217391304348,
+            "macro_accuracy": 95.65217391304348
+          },
+          "counts": {
+            "total": 23,
+            "valid": 23,
+            "correct": 22,
+            "failed": 0
+          },
+          "category_id": "STEM"
+        }
+      ],
+      "operational": {
+        "latency_seconds": 0.55,
+        "input_tokens": 167560,
+        "output_tokens": 1346,
+        "latency_comparable": false
+      },
+      "comparison_group": "ef05eda835652082"
+    },
+    {
+      "id": "mmlu-pro-test-flash-20261012",
+      "benchmark_id": "mmlu-pro",
+      "model_id": "deepseek-flash",
+      "date": "2026-10-12",
+      "source": "aggregates/mmlu-pro-flash.json",
+      "notes": [
+        "全量完成：12032 题、14 个领域；最终请求失败 0。",
+        "账户模型服务名称为 DeepSeek-V4.1-Flash；响应模型名称为 deepseek-flash；不是不可变快照。",
+        "固定版本的 5-shot CoT，关闭 API 内部思考模式，最大输出 4000 token。",
+        "58 个响应达到输出上限；49 个无法提取答案的响应均为截断，按错计分；另 9 个截断响应仍能提取答案，其中 6 个正确。",
+        "中间请求失败已通过续跑补齐，历史错误记录保留在本地；耗时包含重试等待，不用于速度排名。"
+      ],
+      "split": "test",
+      "dataset_fingerprint": "0eb01609592342afa69dbc7ea376a79aa795f1937ac05e1069fb1abda8ec612d",
+      "protocol": {
+        "prompt_version": "mmlu-pro-official-5shot-cot-nonthinking-v1",
+        "shots": 5,
+        "thinking": "disabled",
+        "temperature": 0,
+        "max_tokens": 4000,
+        "selection": "full"
+      },
+      "metrics": {
+        "accuracy": 84.4996675531915,
+        "macro_accuracy": 84.04460506462384
+      },
+      "status": "completed",
+      "counts": {
+        "total": 12032,
+        "valid": 12032,
+        "correct": 10167,
+        "failed": 0,
+        "unparsed": 49,
+        "expected_total": 12032
+      },
+      "categories": [
+        {
+          "id": "biology",
+          "name": "生物",
+          "metrics": {
+            "accuracy": 93.30543933054393,
+            "macro_accuracy": 93.30543933054393
+          },
+          "counts": {
+            "total": 717,
+            "valid": 717,
+            "correct": 669,
+            "failed": 0,
+            "unparsed": 1
+          }
+        },
+        {
+          "id": "business",
+          "name": "商业",
+          "metrics": {
+            "accuracy": 89.60709759188846,
+            "macro_accuracy": 89.60709759188846
+          },
+          "counts": {
+            "total": 789,
+            "valid": 789,
+            "correct": 707,
+            "failed": 0,
+            "unparsed": 5
+          }
+        },
+        {
+          "id": "chemistry",
+          "name": "化学",
+          "metrics": {
+            "accuracy": 87.54416961130742,
+            "macro_accuracy": 87.54416961130742
+          },
+          "counts": {
+            "total": 1132,
+            "valid": 1132,
+            "correct": 991,
+            "failed": 0,
+            "unparsed": 4
+          }
+        },
+        {
+          "id": "computer science",
+          "name": "计算机科学",
+          "metrics": {
+            "accuracy": 86.58536585365853,
+            "macro_accuracy": 86.58536585365853
+          },
+          "counts": {
+            "total": 410,
+            "valid": 410,
+            "correct": 355,
+            "failed": 0,
+            "unparsed": 5
+          }
+        },
+        {
+          "id": "economics",
+          "name": "经济学",
+          "metrics": {
+            "accuracy": 88.74407582938389,
+            "macro_accuracy": 88.74407582938389
+          },
+          "counts": {
+            "total": 844,
+            "valid": 844,
+            "correct": 749,
+            "failed": 0,
+            "unparsed": 2
+          }
+        },
+        {
+          "id": "engineering",
+          "name": "工程",
+          "metrics": {
+            "accuracy": 77.39938080495357,
+            "macro_accuracy": 77.39938080495357
+          },
+          "counts": {
+            "total": 969,
+            "valid": 969,
+            "correct": 750,
+            "failed": 0,
+            "unparsed": 7
+          }
+        },
+        {
+          "id": "health",
+          "name": "健康与医学",
+          "metrics": {
+            "accuracy": 80.31784841075795,
+            "macro_accuracy": 80.31784841075795
+          },
+          "counts": {
+            "total": 818,
+            "valid": 818,
+            "correct": 657,
+            "failed": 0,
+            "unparsed": 0
+          }
+        },
+        {
+          "id": "history",
+          "name": "历史",
+          "metrics": {
+            "accuracy": 74.80314960629921,
+            "macro_accuracy": 74.80314960629921
+          },
+          "counts": {
+            "total": 381,
+            "valid": 381,
+            "correct": 285,
+            "failed": 0,
+            "unparsed": 0
+          }
+        },
+        {
+          "id": "law",
+          "name": "法律",
+          "metrics": {
+            "accuracy": 69.11898274296094,
+            "macro_accuracy": 69.11898274296094
+          },
+          "counts": {
+            "total": 1101,
+            "valid": 1101,
+            "correct": 761,
+            "failed": 0,
+            "unparsed": 0
+          }
+        },
+        {
+          "id": "math",
+          "name": "数学",
+          "metrics": {
+            "accuracy": 93.26424870466322,
+            "macro_accuracy": 93.26424870466322
+          },
+          "counts": {
+            "total": 1351,
+            "valid": 1351,
+            "correct": 1260,
+            "failed": 0,
+            "unparsed": 14
+          }
+        },
+        {
+          "id": "other",
+          "name": "其他",
+          "metrics": {
+            "accuracy": 81.27705627705627,
+            "macro_accuracy": 81.27705627705627
+          },
+          "counts": {
+            "total": 924,
+            "valid": 924,
+            "correct": 751,
+            "failed": 0,
+            "unparsed": 2
+          }
+        },
+        {
+          "id": "philosophy",
+          "name": "哲学",
+          "metrics": {
+            "accuracy": 81.76352705410822,
+            "macro_accuracy": 81.76352705410822
+          },
+          "counts": {
+            "total": 499,
+            "valid": 499,
+            "correct": 408,
+            "failed": 0,
+            "unparsed": 0
+          }
+        },
+        {
+          "id": "physics",
+          "name": "物理",
+          "metrics": {
+            "accuracy": 88.68360277136259,
+            "macro_accuracy": 88.68360277136259
+          },
+          "counts": {
+            "total": 1299,
+            "valid": 1299,
+            "correct": 1152,
+            "failed": 0,
+            "unparsed": 9
+          }
+        },
+        {
+          "id": "psychology",
+          "name": "心理学",
+          "metrics": {
+            "accuracy": 84.21052631578947,
+            "macro_accuracy": 84.21052631578947
+          },
+          "counts": {
+            "total": 798,
+            "valid": 798,
+            "correct": 672,
+            "failed": 0,
+            "unparsed": 0
+          }
+        }
+      ],
+      "dimensions": [
+        {
+          "id": "biology",
+          "name": "生物",
+          "metrics": {
+            "accuracy": 93.30543933054393,
+            "macro_accuracy": 93.30543933054393
+          },
+          "counts": {
+            "total": 717,
+            "valid": 717,
+            "correct": 669,
+            "failed": 0,
+            "unparsed": 1
+          },
+          "category_id": "biology"
+        },
+        {
+          "id": "business",
+          "name": "商业",
+          "metrics": {
+            "accuracy": 89.60709759188846,
+            "macro_accuracy": 89.60709759188846
+          },
+          "counts": {
+            "total": 789,
+            "valid": 789,
+            "correct": 707,
+            "failed": 0,
+            "unparsed": 5
+          },
+          "category_id": "business"
+        },
+        {
+          "id": "chemistry",
+          "name": "化学",
+          "metrics": {
+            "accuracy": 87.54416961130742,
+            "macro_accuracy": 87.54416961130742
+          },
+          "counts": {
+            "total": 1132,
+            "valid": 1132,
+            "correct": 991,
+            "failed": 0,
+            "unparsed": 4
+          },
+          "category_id": "chemistry"
+        },
+        {
+          "id": "computer science",
+          "name": "计算机科学",
+          "metrics": {
+            "accuracy": 86.58536585365853,
+            "macro_accuracy": 86.58536585365853
+          },
+          "counts": {
+            "total": 410,
+            "valid": 410,
+            "correct": 355,
+            "failed": 0,
+            "unparsed": 5
+          },
+          "category_id": "computer science"
+        },
+        {
+          "id": "economics",
+          "name": "经济学",
+          "metrics": {
+            "accuracy": 88.74407582938389,
+            "macro_accuracy": 88.74407582938389
+          },
+          "counts": {
+            "total": 844,
+            "valid": 844,
+            "correct": 749,
+            "failed": 0,
+            "unparsed": 2
+          },
+          "category_id": "economics"
+        },
+        {
+          "id": "engineering",
+          "name": "工程",
+          "metrics": {
+            "accuracy": 77.39938080495357,
+            "macro_accuracy": 77.39938080495357
+          },
+          "counts": {
+            "total": 969,
+            "valid": 969,
+            "correct": 750,
+            "failed": 0,
+            "unparsed": 7
+          },
+          "category_id": "engineering"
+        },
+        {
+          "id": "health",
+          "name": "健康与医学",
+          "metrics": {
+            "accuracy": 80.31784841075795,
+            "macro_accuracy": 80.31784841075795
+          },
+          "counts": {
+            "total": 818,
+            "valid": 818,
+            "correct": 657,
+            "failed": 0,
+            "unparsed": 0
+          },
+          "category_id": "health"
+        },
+        {
+          "id": "history",
+          "name": "历史",
+          "metrics": {
+            "accuracy": 74.80314960629921,
+            "macro_accuracy": 74.80314960629921
+          },
+          "counts": {
+            "total": 381,
+            "valid": 381,
+            "correct": 285,
+            "failed": 0,
+            "unparsed": 0
+          },
+          "category_id": "history"
+        },
+        {
+          "id": "law",
+          "name": "法律",
+          "metrics": {
+            "accuracy": 69.11898274296094,
+            "macro_accuracy": 69.11898274296094
+          },
+          "counts": {
+            "total": 1101,
+            "valid": 1101,
+            "correct": 761,
+            "failed": 0,
+            "unparsed": 0
+          },
+          "category_id": "law"
+        },
+        {
+          "id": "math",
+          "name": "数学",
+          "metrics": {
+            "accuracy": 93.26424870466322,
+            "macro_accuracy": 93.26424870466322
+          },
+          "counts": {
+            "total": 1351,
+            "valid": 1351,
+            "correct": 1260,
+            "failed": 0,
+            "unparsed": 14
+          },
+          "category_id": "math"
+        },
+        {
+          "id": "other",
+          "name": "其他",
+          "metrics": {
+            "accuracy": 81.27705627705627,
+            "macro_accuracy": 81.27705627705627
+          },
+          "counts": {
+            "total": 924,
+            "valid": 924,
+            "correct": 751,
+            "failed": 0,
+            "unparsed": 2
+          },
+          "category_id": "other"
+        },
+        {
+          "id": "philosophy",
+          "name": "哲学",
+          "metrics": {
+            "accuracy": 81.76352705410822,
+            "macro_accuracy": 81.76352705410822
+          },
+          "counts": {
+            "total": 499,
+            "valid": 499,
+            "correct": 408,
+            "failed": 0,
+            "unparsed": 0
+          },
+          "category_id": "philosophy"
+        },
+        {
+          "id": "physics",
+          "name": "物理",
+          "metrics": {
+            "accuracy": 88.68360277136259,
+            "macro_accuracy": 88.68360277136259
+          },
+          "counts": {
+            "total": 1299,
+            "valid": 1299,
+            "correct": 1152,
+            "failed": 0,
+            "unparsed": 9
+          },
+          "category_id": "physics"
+        },
+        {
+          "id": "psychology",
+          "name": "心理学",
+          "metrics": {
+            "accuracy": 84.21052631578947,
+            "macro_accuracy": 84.21052631578947
+          },
+          "counts": {
+            "total": 798,
+            "valid": 798,
+            "correct": 672,
+            "failed": 0,
+            "unparsed": 0
+          },
+          "category_id": "psychology"
+        }
+      ],
+      "operational": {
+        "latency_seconds": 2.3397490026595746,
+        "input_tokens": 15612946,
+        "output_tokens": 3525931,
+        "latency_comparable": false
+      },
+      "comparison_group": "63834d78123ae701"
+    }
+  ]
+}
