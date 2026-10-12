@@ -1,0 +1,214 @@
+[
+  {
+    "id": "img01",
+    "sha256": "ce1f6864d40fdd63bee5052c6b4199d786ad0c59548278049407a02cdbfe282d",
+    "reviewer": "assistant_visual_review_v1",
+    "checks": [
+      {
+        "criterion": "恰好一个苹果",
+        "status": "pass"
+      },
+      {
+        "criterion": "苹果为红色",
+        "status": "pass"
+      },
+      {
+        "criterion": "白色背景",
+        "status": "pass"
+      }
+    ],
+    "note": "按预先定义检查项进行单次助手视觉复核，未独立人工盲评。"
+  },
+  {
+    "id": "img02",
+    "sha256": "e8b4c660177077d076761195ebf6180df944b4d53b570e45b03030b8e714bca3",
+    "reviewer": "assistant_visual_review_v1",
+    "checks": [
+      {
+        "criterion": "存在杯子和香蕉",
+        "status": "pass"
+      },
+      {
+        "criterion": "杯子蓝色",
+        "status": "pass"
+      },
+      {
+        "criterion": "香蕉黄色",
+        "status": "pass"
+      }
+    ],
+    "note": "按预先定义检查项进行单次助手视觉复核，未独立人工盲评。"
+  },
+  {
+    "id": "img03",
+    "sha256": "d73c56a4b21e5f797205e70a2f9de3802c5770f79b4464f04c818e0b5602a8e8",
+    "reviewer": "assistant_visual_review_v1",
+    "checks": [
+      {
+        "criterion": "恰好三个苹果",
+        "status": "pass"
+      },
+      {
+        "criterion": "苹果绿色",
+        "status": "pass"
+      },
+      {
+        "criterion": "水平排列",
+        "status": "pass"
+      }
+    ],
+    "note": "按预先定义检查项进行单次助手视觉复核，未独立人工盲评。"
+  },
+  {
+    "id": "img04",
+    "sha256": "dc4d921f5fa2e695547c625533eaf9e80cddaf9724a81d4bb0c0d2a582db9205",
+    "reviewer": "assistant_visual_review_v1",
+    "checks": [
+      {
+        "criterion": "恰好一辆自行车",
+        "status": "pass"
+      },
+      {
+        "criterion": "车身紫色",
+        "status": "pass"
+      },
+      {
+        "criterion": "无人物",
+        "status": "pass"
+      }
+    ],
+    "note": "按预先定义检查项进行单次助手视觉复核，未独立人工盲评。"
+  },
+  {
+    "id": "img05",
+    "sha256": "b3ad6ebaa8b427cdafff162edb20cc6ecf10e7a23c4d25b53105efbac2e5f66f",
+    "reviewer": "assistant_visual_review_v1",
+    "checks": [
+      {
+        "criterion": "红色立方体",
+        "status": "pass"
+      },
+      {
+        "criterion": "蓝色球体",
+        "status": "pass"
+      },
+      {
+        "criterion": "立方体在画面左侧球体在右侧",
+        "status": "pass"
+      }
+    ],
+    "note": "按预先定义检查项进行单次助手视觉复核，未独立人工盲评。"
+  },
+  {
+    "id": "img06",
+    "sha256": "3c3c1a20671948535112dbd5482cab9451258cc0518dd8d61e6b1ec829e750b5",
+    "reviewer": "assistant_visual_review_v1",
+    "checks": [
+      {
+        "criterion": "存在茶壶和杯子",
+        "status": "pass"
+      },
+      {
+        "criterion": "茶壶黄色",
+        "status": "pass"
+      },
+      {
+        "criterion": "杯子蓝色",
+        "status": "pass"
+      }
+    ],
+    "note": "按预先定义检查项进行单次助手视觉复核，未独立人工盲评。"
+  },
+  {
+    "id": "img07",
+    "sha256": "3c5e77833ada4747415bbeadd36788250776ef6537a30ca53943f0d5791b8640",
+    "reviewer": "assistant_visual_review_v1",
+    "checks": [
+      {
+        "criterion": "标题准确为春日读书会",
+        "status": "pass"
+      },
+      {
+        "criterion": "下方文字准确为周六下午三点",
+        "status": "pass"
+      },
+      {
+        "criterion": "无其他文字",
+        "status": "pass"
+      }
+    ],
+    "note": "按预先定义检查项进行单次助手视觉复核，未独立人工盲评。"
+  },
+  {
+    "id": "img08",
+    "sha256": "a5bc008b9975bf0a0ccf08be4a3dc4fac31949f6bac968fe2dd9b558fc590e86",
+    "reviewer": "assistant_visual_review_v1",
+    "checks": [
+      {
+        "criterion": "浅绿色背景",
+        "status": "pass"
+      },
+      {
+        "criterion": "标题准确且位于顶部",
+        "status": "pass"
+      },
+      {
+        "criterion": "优惠文字准确且位于底部",
+        "status": "pass"
+      },
+      {
+        "criterion": "中间恰好两杯咖啡",
+        "status": "ambiguous"
+      }
+    ],
+    "note": "主体为两杯咖啡；每个杯身还有一个杯子图标。主体计数符合，但所有杯子描绘严格计数有歧义，保留复核。标题和底部优惠文字可辨认且位置符合。"
+  },
+  {
+    "id": "img09",
+    "sha256": "3b80d9d1a191baa10f9f31d8e64587f1e3bcae51c7678318569bd5b72fef930d",
+    "reviewer": "assistant_visual_review_v1",
+    "checks": [
+      {
+        "criterion": "左侧有树右侧有红色长椅",
+        "status": "pass"
+      },
+      {
+        "criterion": "白猫坐在长椅上",
+        "status": "pass"
+      },
+      {
+        "criterion": "地面恰好两朵黄色花",
+        "status": "pass"
+      },
+      {
+        "criterion": "无人物和文字",
+        "status": "pass"
+      }
+    ],
+    "note": "按预先定义检查项进行单次助手视觉复核，未独立人工盲评。"
+  },
+  {
+    "id": "img10",
+    "sha256": "73ef7ede21c6bd39a3fc8e2cd655f0d29a27d0b0da292ad792e25c7a810332e5",
+    "reviewer": "assistant_visual_review_v1",
+    "checks": [
+      {
+        "criterion": "猫头鹰站在树枝上",
+        "status": "pass"
+      },
+      {
+        "criterion": "黑白无彩色",
+        "status": "pass"
+      },
+      {
+        "criterion": "可见木刻排线风格",
+        "status": "pass"
+      },
+      {
+        "criterion": "无文字",
+        "status": "pass"
+      }
+    ],
+    "note": "按预先定义检查项进行单次助手视觉复核，未独立人工盲评。"
+  }
+]

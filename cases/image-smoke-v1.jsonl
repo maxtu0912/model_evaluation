@@ -1,0 +1,10 @@
+{"id":"img01","category":"单对象","prompt":"A studio photograph of one red apple centered on a plain white background, no other objects, no text.","checks":["恰好一个苹果","苹果为红色","白色背景"]}
+{"id":"img02","category":"双对象","prompt":"A studio photograph of a blue ceramic mug and a yellow banana on a plain white table. No other objects or text.","checks":["存在杯子和香蕉","杯子蓝色","香蕉黄色"]}
+{"id":"img03","category":"数量","prompt":"Exactly three green apples in a straight horizontal row on a plain white background. No other objects or text.","checks":["恰好三个苹果","苹果绿色","水平排列"]}
+{"id":"img04","category":"颜色","prompt":"A single purple bicycle photographed against a plain white wall, no people, no other bicycles, no text.","checks":["恰好一辆自行车","车身紫色","无人物"]}
+{"id":"img05","category":"空间位置","prompt":"A red cube on the left and a blue sphere on the right, clearly separated on a plain white surface, front view. No other objects or text.","checks":["红色立方体","蓝色球体","立方体在画面左侧球体在右侧"]}
+{"id":"img06","category":"属性绑定","prompt":"A yellow teapot next to a blue ceramic cup on a white table. The teapot is yellow and the cup is blue. No other objects or text.","checks":["存在茶壶和杯子","茶壶黄色","杯子蓝色"]}
+{"id":"img07","category":"中文文字","prompt":"设计一张极简白底海报，中间用清晰黑色中文大字准确写出“春日读书会”，下方准确写出“周六下午三点”。不包含任何其他文字。","checks":["标题准确为春日读书会","下方文字准确为周六下午三点","无其他文字"]}
+{"id":"img08","category":"海报布局","prompt":"设计一张正方形咖啡店促销海报，浅绿色背景，顶部准确写出“周末咖啡节”，底部准确写出“第二杯半价”，正中间放置恰好两杯咖啡。不要添加其他文字。","checks":["浅绿色背景","标题准确且位于顶部","优惠文字准确且位于底部","中间恰好两杯咖啡"]}
+{"id":"img09","category":"多约束","prompt":"绘制一幅正方形扁平插画：浅蓝色天空下，左侧有一棵树，右侧有一张红色长椅，长椅上坐着一只白猫，地面上恰好有两朵黄色花。不要人物，不要文字。","checks":["左侧有树右侧有红色长椅","白猫坐在长椅上","地面恰好两朵黄色花","无人物和文字"]}
+{"id":"img10","category":"风格遵循","prompt":"用黑白木刻版画风格绘制一只猫头鹰站在树枝上，羽毛用明显的排线刻痕表现，整体仅使用黑色与白色，不要彩色，不要文字。","checks":["猫头鹰站在树枝上","黑白无彩色","可见木刻排线风格","无文字"]}

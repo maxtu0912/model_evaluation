@@ -4,6 +4,12 @@ results/**
 !results/ceval-deepseek-v4-pro-test.md
 !results/mmlu-pro-flash.md
 /data/
+/artifacts/*
+!/artifacts/seedream-flash-smoke/
+/artifacts/seedream-flash-smoke/*
+!/artifacts/seedream-flash-smoke/img*.png
+!/artifacts/seedream-flash-smoke/records.jsonl
+!/artifacts/seedream-flash-smoke/review.json
 .venv/
 __pycache__/
 .env
